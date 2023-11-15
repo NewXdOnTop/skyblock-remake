@@ -14,7 +14,7 @@ public class BeheadedHorror extends SkyblockItem implements IHeadHelmet {
         super(
                 ID,
                 "Beheaded Horror",
-                Material.PLAYER_HEAD,
+                Material.SKULL_ITEM,
                 null,
                 new HashMap<>(),
                 Rarity.EPIC,
