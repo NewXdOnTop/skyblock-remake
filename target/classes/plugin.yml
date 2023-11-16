@@ -1,0 +1,12 @@
+name: Skyblock
+version: '1.0-SNAPSHOT'
+main: com.sweattypalms.skyblock.SkyBlock
+api-version: '1.17'
+authors: [sweattypalms, devil_gamer_xd]
+description: A Hypixel Skyblock remake plugin
+website: sweattypalms.me
+depend:
+  - Multiverse-Core
+commands:
+  wtf:
+    description: WTF
