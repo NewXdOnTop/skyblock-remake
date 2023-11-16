@@ -114,4 +114,8 @@ public class PDCHelper {
     public static NBTCompound getDefaultCompound(NBTItem nbt) {
         return nbt.getOrCreateCompound("ExtraAttributes");
     }
+    private static boolean isNotNull(ItemStack item) {
+        if (item == null) return false;
+        if (item.getType() == Material.AIR) return false;
+        return true;
 }
