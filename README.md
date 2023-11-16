@@ -1,7 +1,7 @@
 # Skyblock Remake 1.8.8
 
 <b>Skyblock Remake </b> is an open-source fan project inspired by Hypixel's Skyblock. It aims not only to recreate the familiar experience but also to offer a platform for fellow developers to learn and grow.
-## Original Repo: [link](https://github.com/Sweattypalms/skyblock-remake)
+## Original Repo: [link](https://github.com/Sweattypalms/skyblock-remake) [1.17.1]
 
 🚨 **Disclaimer:** This project is a fan-made recreation of "Hypixel" Skyblock. It is not affiliated with or endorsed by Hypixel or its associated products. All rights and content belong to their respective owners.
 
