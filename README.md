@@ -1,5 +1,19 @@
 # Skyblock Remake 1.8.8
 
+<div id="top">
+<p align="center">
+  <a href="https://github.com/NewXdOnTop/skyblock-remake/releases/" target="_blank">
+    <img alt="downloads" src="https://img.shields.io/github/v/release/NewXdOnTop/skyblock-remake?color=F&style=flat-square" />
+  </a>
+  <a href="https://github.com/NewXdOnTop/skyblock-remake/releases/" target="_blank">
+    <img alt="downloads" src="https://img.shields.io/github/downloads/NewXdOnTop/skyblock-remake/total?color=4166f5&style=flat-square" />
+  </a>
+  <a href="https://github.com/NewXdaonTop/skyblock-remake/blob/main/LICENSE" target="_blank">
+    <img alt="license" src="https://img.shields.io/github/license/NewXdOnTop/skyblock-remake?color=4166f5&style=flat-square" />
+  </a>
+</p>
+</div>
+
 <b>Skyblock Remake </b> is an open-source fan project inspired by Hypixel's Skyblock. It aims not only to recreate the familiar experience but also to offer a platform for fellow developers to learn and grow.
 ## Original Repo: [link](https://github.com/Sweattypalms/skyblock-remake) [1.17.1]
 
