@@ -46,30 +46,30 @@ I am a high school student deeply passionate about programming. Two years ago, I
 
 -   **Annotation-Based Command System:** Efficiently handle and manage in-game commands.
 ```java
-@Command(name = "example", description = "Example command", op = true)  
-public void exampleCommand(Player player, String[] args) {  
-  player.sendMessage(ChatColor.RED + "This is an example command!");  
-    player.sendMessage(ChatColor.YELLOW + Strings.join(args, " "));  
-}  
-	  
-@TabCompleter(command = "example")  
-public List<String> exampleTabCompleter(Player player, String[] args) {  
-  return List.of("example", "example2");  
+@Command(name = "example", description = "Example command", op = true)
+public void exampleCommand(Player player, String[] args) {
+    player.sendMessage(ChatColor.RED + "This is an example command!");
+    player.sendMessage(ChatColor.YELLOW + Strings.join(args, " "));
+}
+
+@TabCompleter(command = "example")
+public List<String> exampleTabCompleter(Player player, String[] args) {
+    return List.of("example", "example2");
 }
 ```
 -   **Hologram System:** Create both static and dynamic holograms with ease.
 ```java
-Hologram hologram = new Hologram(  
-		"Example Text",  
-		new Location(Bukkit.getWorld("world"), 0, 100,0),  
-)				
+Hologram hologram = new Hologram(
+        "Example Text",
+        new Location(Bukkit.getWorld("world"), 0, 100,0),
+        )				
 ```
 -   **Event-Based System:** Harness the power of events for versatile gameplay elements.
 ```java
-@EventHandler  
-public void onXpGain(SkyblockXpEvent event){  
-	String name = event.getSkyblockPlayer().getPlayer().getName();  
-	System.out.println(name + " gained " + event.getXp());  
+@EventHandler
+public void onXpGain(SkyblockXpEvent event){
+    String name = event.getSkyblockPlayer().getPlayer().getName();
+    System.out.println(name + " gained " + event.getXp());
 }
 ```
 -   **Particle Helpers:** Enhance visual elements with particle effects.
@@ -77,59 +77,59 @@ public void onXpGain(SkyblockXpEvent event){
 Player player = ...;
 // f (0.1) =>  Starting radius for the spiral.
 // delta (1.5) =>  Max radius for the spiral
-MathHelper.spiralParticles(player, 0.1, 1.5, Particle.FLAME);
+        MathHelper.spiralParticles(player, 0.1, 1.5, Particle.FLAME);
 ```
 -   **Auto Initializing:** Automatic setup for various modules including mobs, items, commands, and listeners.
 -   **OOP-Based Systems:** Object-Oriented Programming based systems for items, mobs, and UIs.
 ```java
 	/* Example Item */
-public class LightningChestplate extends SkyblockItem implements IHasAbility, IDyedArmor {  
-	public static final String ID = "lightning_chestplate";  
-	private static final Map<Stats, Double> stats = new HashMap<>(Map.of(  
-		Stats.HEALTH, 30d  
-	));  
-  
-    public LightningChestplate() {  
-		super(  
-			ID,  
-			"Lightning Armor Chestplate",  
-			Material.LEATHER_CHESTPLATE,  
-			null,  // Static lore
-			stats,  
-			Rarity.SPECIAL,  
-			SkyblockItemType.CHESTPLATE  
-		);  
-    }  
-  
-	@Override  
-	public List<Ability> getAbilities() {  
-		return List.of(AbilityManager.LIGHTNING_ARMOR_ABILITY);  
-	}  
-  
-	@Override  
-	public String getHexColor() {  
-		return "FFFF00";  
-	}  
+public class LightningChestplate extends SkyblockItem implements IHasAbility, IDyedArmor {
+    public static final String ID = "lightning_chestplate";
+    private static final Map<Stats, Double> stats = new HashMap<>(Map.of(
+            Stats.HEALTH, 30d
+    ));
+
+    public LightningChestplate() {
+        super(
+                ID,
+                "Lightning Armor Chestplate",
+                Material.LEATHER_CHESTPLATE,
+                null,  // Static lore
+                stats,
+                Rarity.SPECIAL,
+                SkyblockItemType.CHESTPLATE
+        );
+    }
+
+    @Override
+    public List<Ability> getAbilities() {
+        return List.of(AbilityManager.LIGHTNING_ARMOR_ABILITY);
+    }
+
+    @Override
+    public String getHexColor() {
+        return "FFFF00";
+    }
 }
 ```
 -   **UI System:** Robust UI system with callback features for clickable items and static GUIs.
 ```java
 public class TestGUI extends BaseGUI {
-	private static final int SIZE = 6 * 9 // 6 rows of 9 slots
+    private static final int SIZE = 6 * 9 // 6 rows of 9 slots
 
-	public TestGUI() {
-		super(SIZE, "Test GUI");
-	}
+    public TestGUI() {
+        super(SIZE, "Test GUI");
+    }
 
-	@Override
-	public void initializeItems(Player player){
-		this.fillBorder(BorderType.ALL); // All around border
-		ItemStack testItem = new ItemStack(Material.DIAMOND_SWORD);
-		this.setItemAt(3, 4, testItem); // At (3,4)
-		this.setNextItem(testItem); // Next available slot
-	}
+    @Override
+    public void initializeItems(Player player){
+        this.fillBorder(BorderType.ALL); // All around border
+        ItemStack testItem = new ItemStack(Material.DIAMOND_SWORD);
+        this.setItemAt(3, 4, testItem); // At (3,4)
+        this.setNextItem(testItem); // Next available slot
+    }
 }
-	
+
 ```
 </details>
 
