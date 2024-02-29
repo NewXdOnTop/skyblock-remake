@@ -1,11 +1,11 @@
 name: Skyblock
 version: '${project.version}'
 main: com.sweattypalms.skyblock.SkyBlock
-api-version: '1.17'
-authors: [sweattypalms, devil_gamer_xd]
+api-version: '1.8.8'
+authors: [ sweattypalms, devil_gamer_xd, shlok ]
 description: A Hypixel Skyblock remake plugin
 website: sweattypalms.me
-depend:
+softdepend:
   - Multiverse-Core
 commands:
   wtf:

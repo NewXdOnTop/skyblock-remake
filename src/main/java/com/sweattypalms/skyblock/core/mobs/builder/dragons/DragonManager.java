@@ -45,6 +45,7 @@ public class DragonManager {
             new Point(-2, -1)
     );
     public static Map<Location, Material> temp_save_backup = new HashMap<>();
+    public static Map<Location, Byte> temp_save_backup_data = new HashMap<>();
     private static World endWorld; // TODO: implement better system
     private static DragonManager instance;
     private final Map<Block, UUID> altarBlocks = new HashMap<>();
@@ -190,14 +191,16 @@ public class DragonManager {
                         if (finalY > allStart) {
                             if (checkSolidBlock(loc.getBlock())) continue;
                             temp_save_backup.put(loc.getBlock().getLocation(), loc.getBlock().getType());
+                            temp_save_backup_data.put(loc.getBlock().getLocation(), loc.getBlock().getData());
                             endWorld.getBlockAt(loc).setType(Material.AIR);
                         }
                         if (x == 0 && z == 0) {
                             if (checkSolidBlock(loc.getBlock())) continue;
                             temp_save_backup.put(loc.getBlock().getLocation(), XMaterial.PURPLE_STAINED_GLASS.parseMaterial());
+                            temp_save_backup_data.put(loc.getBlock().getLocation(), (byte) 10);
                             endWorld.getBlockAt(loc).setType(Material.AIR);
                             loc.clone().add(0, 1, 0).getBlock().setType(XMaterial.PURPLE_STAINED_GLASS.parseMaterial());
-                            loc.clone().add(0, 2, 0).getBlock().setData((byte) 10);
+                            loc.clone().add(0, 1, 0).getBlock().setData((byte) 10);
                             if (loc.clone().add(0, 2, 0).getBlock().getType() == Material.WOOL && loc.clone().add(0, 2, 0).getBlock().getData() == 10) {
                                 break;
                             }
@@ -219,6 +222,7 @@ public class DragonManager {
                         if (loc.getBlock().getType() == Material.AIR) continue;
                         if (checkSolidBlock(loc.getBlock())) continue;
                         temp_save_backup.put(loc.getBlock().getLocation(), loc.getBlock().getType());
+                        temp_save_backup_data.put(loc.getBlock().getLocation(), loc.getBlock().getData());
                         blocks.add(convertToFalling(loc, loc.getBlock().getType()));
                     }
                 }
@@ -289,7 +293,10 @@ public class DragonManager {
         this.altarBlocks.clear();
         this.playerDamage.clear();
 
-        temp_save_backup.forEach((loc, type) -> loc.getBlock().setType(type));
+        temp_save_backup.forEach((loc, type) -> {
+            loc.getBlock().setType(type);
+            loc.getBlock().setData(temp_save_backup_data.getOrDefault(loc, (byte) 0));
+        });
     }
 
     private Location pointToLocation(Point point) {

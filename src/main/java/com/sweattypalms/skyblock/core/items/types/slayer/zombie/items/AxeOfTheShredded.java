@@ -159,7 +159,8 @@ public class AxeOfTheShredded extends SkyblockItem implements IHasAbility {
 
 
             Location eyeLocation = player.getLocation();
-            Location destination = eyeLocation.clone().add(eyeLocation.getDirection().multiply(30));
+            int shouldGo = 50; // The distance the axe should go
+            Location destination = eyeLocation.clone().add(eyeLocation.getDirection().multiply(shouldGo));
 
             Vector vector = destination.subtract(eyeLocation).toVector(); // Vector from eyeLocation to destination
 

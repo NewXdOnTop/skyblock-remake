@@ -3,7 +3,6 @@ package com.sweattypalms.skyblock.core.events.listeners;
 import com.sweattypalms.skyblock.commands.CommandListener;
 import io.netty.channel.*;
 import net.minecraft.server.v1_8_R3.PacketPlayInTabComplete;
-import net.minecraft.server.v1_8_R3.PacketPlayOutTabComplete;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

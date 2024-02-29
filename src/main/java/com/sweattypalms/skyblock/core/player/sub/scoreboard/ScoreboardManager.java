@@ -42,7 +42,7 @@ public class ScoreboardManager {
     private void setupScoreboard() {
         assert Bukkit.getScoreboardManager() != null;
         this.bukkitScoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
-        this.bukkitObjective = bukkitScoreboard.registerNewObjective(OBJECTIVE_CRITERIA, SCOREBOARD_TITLE);
+        this.bukkitObjective = bukkitScoreboard.registerNewObjective(SCOREBOARD_TITLE, OBJECTIVE_CRITERIA);
         this.bukkitObjective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
         setupSkyblockInfoSection();

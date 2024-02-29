@@ -13,30 +13,28 @@ public class PDCHelper {
     }
 
     public static boolean hasInt(ItemStack item, String key) {
-        if (item == null) return false;
-        if (item.getType() == Material.AIR) return false;
+        if (!isNotNull(item)) return false;
         NBTItem nbt = getNBTItem(item);
         NBTCompound cp = getDefaultCompound(nbt);
-        return item != null && cp.getInteger(key) != null;
+        return cp.getInteger(key) != null;
     }
 
     public static boolean hasString(ItemStack item, String key) {
-        if (item == null) return false;
-        if (item.getType() == Material.AIR) return false;
+        if (!isNotNull(item)) return false;
         NBTItem nbt = getNBTItem(item);
         NBTCompound cp = getDefaultCompound(nbt);
-        return item != null && item.hasItemMeta() && cp.getString(key) != null;
+        return item.hasItemMeta() && cp.getString(key) != null;
     }
 
     public static boolean hasDouble(ItemStack item, String key) {
-        if (item == null) return false;
-        if (item.getType() == Material.AIR) return false;
+        if (!isNotNull(item)) return false;
         NBTItem nbt = getNBTItem(item);
         NBTCompound cp = getDefaultCompound(nbt);
-        return item != null && item.hasItemMeta() && cp.getDouble(key) != null;
+        return item.hasItemMeta() && cp.getDouble(key) != null;
     }
 
     public static Integer getInt(ItemStack item, String key) {
+        if (!isNotNull(item)) return 0;
         NBTItem nbt = getNBTItem(item);
         NBTCompound cp = getDefaultCompound(nbt);
         return hasInt(item, key) ? cp.getInteger(key)
@@ -44,12 +42,14 @@ public class PDCHelper {
     }
 
     public static String getString(ItemStack item, String key) {
+        if (!isNotNull(item)) return "";
         NBTItem nbt = getNBTItem(item);
         NBTCompound cp = getDefaultCompound(nbt);
         return hasString(item, key) ? cp.getString(key) : "";
     }
 
     public static Double getDouble(ItemStack item, String key) {
+        if (!isNotNull(item)) return 0.0;
         NBTItem nbt = getNBTItem(item);
         NBTCompound cp = getDefaultCompound(nbt);
         return hasDouble(item, key) ?
@@ -58,6 +58,7 @@ public class PDCHelper {
     }
 
     public static <T> void set(ItemStack item, String key, T value) {
+        if (isNotNull(item)) return;
         NBTItem nbt = getNBTItem(item);
         NBTCompound cp = getDefaultCompound(nbt);
         if (value instanceof Integer)
@@ -82,6 +83,7 @@ public class PDCHelper {
     }
 
     public static void setString(ItemStack item, String key, String value) {
+        if (isNotNull(item)) return;
         NBTItem nbt = getNBTItem(item);
         NBTCompound cp = getDefaultCompound(nbt);
         cp.setString(key, value);
@@ -91,7 +93,7 @@ public class PDCHelper {
     }
 
     public static void setDouble(ItemStack item, String key, Double value) {
-        ItemMeta meta = item.getItemMeta();
+        if (isNotNull(item)) return;
         NBTItem nbt = getNBTItem(item);
         NBTCompound cp = getDefaultCompound(nbt);
         cp.setDouble(key, value);
@@ -113,5 +115,9 @@ public class PDCHelper {
 
     public static NBTCompound getDefaultCompound(NBTItem nbt) {
         return nbt.getOrCreateCompound("ExtraAttributes");
+    }
+
+    private static boolean isNotNull(ItemStack item) {
+        return item != null && item.getType() != Material.AIR;
     }
 }
