@@ -8,6 +8,7 @@ import com.sweattypalms.skyblock.core.mobs.builder.MobManager;
 import com.sweattypalms.skyblock.core.mobs.builder.dragons.DragonManager;
 import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
 import com.sweattypalms.skyblock.core.world.WorldManager;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -26,6 +27,8 @@ import java.util.Set;
 public final class SkyBlock extends JavaPlugin {
 
     private static SkyBlock instance;
+    @Getter
+    private static String serverIP;
 
     public static SkyBlock getInstance() {
         return instance;
@@ -77,7 +80,7 @@ public final class SkyBlock extends JavaPlugin {
         System.out.println(ChatColor.GREEN + "Successfully loaded " + ReforgeManager.REFORGES_LIST.size() + " reforges.");
 
         System.out.println("Registering enchantments...");
-         EnchantManager.init();
+        EnchantManager.init();
         System.out.println(ChatColor.GREEN + "Successfully loaded " + EnchantManager.ENCHANTMENTS.size() + " enchantments.");
     }
 
@@ -108,12 +111,24 @@ public final class SkyBlock extends JavaPlugin {
 
     private void configs() {
         File configuration = new File(this.getDataFolder(), "skyblock_config.yml");
-        FileConfiguration config = YamlConfiguration.loadConfiguration(configuration);
-        config.set("ratio", true);
-        try {
-            config.save(configuration);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (!configuration.exists()) {
+            try {
+             //   configuration.createNewFile();
+                FileConfiguration config = YamlConfiguration.loadConfiguration(configuration);
+                config.set("ratio", true);
+                config.set("server-ip", "mc.sweattypalms.me");
+                serverIP = "mc.sweattypalms.me";
+                try {
+                    config.save(configuration);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            FileConfiguration config = YamlConfiguration.loadConfiguration(configuration);
+            serverIP = config.getString("server-ip", "mc.sweattypalms.me");
         }
     }
 

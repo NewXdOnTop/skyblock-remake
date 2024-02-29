@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.player.sub.scoreboard;
 
+import com.sweattypalms.skyblock.SkyBlock;
 import com.sweattypalms.skyblock.core.helpers.PlaceholderFormatter;
 import com.sweattypalms.skyblock.core.mobs.builder.dragons.DragonManager;
 import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
@@ -29,7 +30,7 @@ public class ScoreboardManager {
     private final SkyblockPlayer player;
     private Scoreboard bukkitScoreboard;
     private Objective bukkitObjective;
-    private Map<Section, List<ScoreboardLine>> sectionLines;
+    private final Map<Section, List<ScoreboardLine>> sectionLines;
     private int currentColorIndex = 0;
 
 
@@ -96,7 +97,7 @@ public class ScoreboardManager {
         List<ScoreboardLine> lines = new ArrayList<>();
 
         lines.add(new ScoreboardLine(this, 1));
-        lines.add(new ScoreboardLine(this, " $6◆ $cmc.sweattypalms.me $6◆", 0));
+        lines.add(new ScoreboardLine(this, " $6◆ $c" + SkyBlock.getServerIP() + " $6◆", 0));
 
         sectionLines.put(Section.FOOTER, lines);
     }
