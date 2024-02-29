@@ -35,8 +35,9 @@ public class MozangStuff {
         item.setItemMeta(skullMeta);
         return item;
     }
+
     public static void setAI(Entity bukkitEntity, boolean ai) {
-        net.minecraft.server.v1_8_R3.Entity nmsEntity = ((CraftEntity)bukkitEntity).getHandle();
+        net.minecraft.server.v1_8_R3.Entity nmsEntity = ((CraftEntity) bukkitEntity).getHandle();
         NBTTagCompound tag = nmsEntity.getNBTTag();
         if (tag == null) {
             tag = new NBTTagCompound();
@@ -45,8 +46,9 @@ public class MozangStuff {
         tag.setInt("NoAI", (ai ? 0 : 1));
         nmsEntity.f(tag);
     }
+
     public static void noHit(Entity bukkitEntity) {
-        net.minecraft.server.v1_8_R3.Entity nmsEntity = ((CraftEntity)bukkitEntity).getHandle();
+        net.minecraft.server.v1_8_R3.Entity nmsEntity = ((CraftEntity) bukkitEntity).getHandle();
         NBTTagCompound tag = nmsEntity.getNBTTag();
         if (tag == null) {
             tag = new NBTTagCompound();
@@ -55,15 +57,16 @@ public class MozangStuff {
         tag.setInt("Invulnerable", 1);
         nmsEntity.f(tag);
     }
+
     @SuppressWarnings({"rawtypes", "unchecked"})
     public static void addToMaps(Class clazz, String name, int id) {
-        // this.registerEntity(name, id, clazz);
         ((Map) getPrivateField("c", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(name, clazz);
         ((Map) getPrivateField("d", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(clazz, name);
         ((Map) getPrivateField("e", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(id, clazz);
         ((Map) getPrivateField("f", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(clazz, id);
         ((Map) getPrivateField("g", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(name, id);
     }
+
     private static Object getPrivateField(String fieldName, @SuppressWarnings("rawtypes") Class clazz, Object object) {
         Field field;
         Object o = null;
@@ -78,5 +81,11 @@ public class MozangStuff {
         }
 
         return o;
+    }
+
+    @SuppressWarnings("rawtypes")
+    public static int getMobID(Class<?> clazz) {
+        Integer var1 = (Integer) ((Map) getPrivateField("f", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).get(clazz);
+        return var1 == null ? 0 : var1;
     }
 }

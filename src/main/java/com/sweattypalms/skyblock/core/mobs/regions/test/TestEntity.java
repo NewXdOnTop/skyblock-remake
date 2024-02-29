@@ -14,7 +14,7 @@ public class TestEntity extends EntityZombie implements ISkyblockMob {
     private final SkyblockMob skyblockMob;
 
     public TestEntity(Location location, SkyblockMob skyblockMob) {
-        super( ((CraftWorld) location.getWorld()).getHandle());
+        super(((CraftWorld) location.getWorld()).getHandle());
         this.skyblockMob = skyblockMob;
         this.skyblockMob
                 .setMaxHealth(100_000_000)
@@ -22,7 +22,7 @@ public class TestEntity extends EntityZombie implements ISkyblockMob {
                 .setLevel(999)
 //                .setLoot(new MobLoot().addConfirmedDrop(SkyblockItem.get()))
                 .setAttribute(MobAttributes.COMBAT_XP, 50d);
-                ;
+        ;
         skyblockMob.setAttribute(MobAttributes.AI_ENABLED, false);
         this.initPathfinder();
     }
@@ -36,7 +36,6 @@ public class TestEntity extends EntityZombie implements ISkyblockMob {
     public EntityLiving getEntityInstance() {
         return this;
     }
-
 
 
     protected void initPathfinder() {

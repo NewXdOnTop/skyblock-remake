@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.player.sub.stats;
 
+import com.sweattypalms.skyblock.SkyBlock;
 import com.sweattypalms.skyblock.core.helpers.BukkitWrapper;
 import com.sweattypalms.skyblock.core.helpers.PDCHelper;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
@@ -141,7 +142,10 @@ public class StatsManager {
         healthCorrection(oldMaxHealth, oldCurrentHealth);
         double max = 500;
         double speed = Math.min(stats.get(Stats.SPEED), max);
-        this.player.getPlayer().setWalkSpeed((float) (speed / max));
+        Bukkit.getScheduler().callSyncMethod(SkyBlock.getInstance(), () -> {
+            this.player.getPlayer().setWalkSpeed((float) (speed / max));
+            return true;
+        });
     }
 
 
@@ -217,7 +221,7 @@ public class StatsManager {
         double value = 0;
         String reforgeString = PDCHelper.getOrDefault(item, "reforge", "none");
         Reforge reforge = ReforgeManager.getReforge(reforgeString);
-        if(reforge != null){
+        if (reforge != null) {
             Rarity rarity = Rarity.valueOf(PDCHelper.getOrDefault(item, "rarity", "COMMON"));
             value += reforge.getReforgeStats(rarity).getOrDefault(stat, 0.0);
         }
@@ -249,9 +253,19 @@ public class StatsManager {
     public void setBaseStat(Stats stat, double value) {
         this.baseStats.put(stat, value);
     }
+    public double getMaxStat(Stats stat) {
+        return this.maxStats.get(stat);
+    }
+    public double getLiveStat(Stats stat) {
+        return this.liveStats.get(stat);
+    }
+    public double getBaseStat(Stats stat) {
+        return this.baseStats.get(stat);
+    }
 
     /**
      * Get the effective health of the player
+     *
      * @return double Effective health
      */
     public double getEffectiveHealth() {
