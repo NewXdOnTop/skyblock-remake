@@ -227,17 +227,16 @@ public class CommandRegistry {
         public List<String> tabComplete(final CommandSender sender, final String alias, final String[] args) throws IllegalArgumentException {
             final CommandArgs sbCommandArgs = new CommandArgs(sender, this, alias, args);
             final List<String> completions = CommandRegistry.this.handleTabCompletion(sbCommandArgs);
-            final List<String> result = new ArrayList<>(completions);
+            final List<String> temp = new ArrayList<>();
             for (final String a : completions) {
                 try {
                     if (a.toLowerCase().startsWith(args[args.length - 1].toLowerCase())) {
-                        result.clear();
-                        result.add(a);
+                        temp.add(a);
                     }
                 } catch (ArrayIndexOutOfBoundsException ignored) {
                 }
             }
-            return result;
+            return !temp.isEmpty() ? temp : completions;
         }
 
     }
