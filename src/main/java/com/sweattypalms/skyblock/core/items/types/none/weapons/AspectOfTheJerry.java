@@ -34,7 +34,7 @@ public class AspectOfTheJerry extends SkyblockItem implements IHasAbility {
                 Material.WOOD_SWORD,
                 null,
                 stats,
-                Rarity.LEGENDARY,
+                Rarity.COMMON,
                 SkyblockItemType.SWORD
         );
     }
