@@ -4,7 +4,7 @@ import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
 import com.sweattypalms.skyblock.slayers.Slayer;
 import com.sweattypalms.skyblock.slayers.SlayerType;
 import com.sweattypalms.skyblock.slayers.events.SlayerStartEvent;
-import com.sweattypalms.skyblock.slayers.zombie.RevenantHorrorTierI;
+import com.sweattypalms.skyblock.slayers.type.zombie.RevenantHorrorTierI;
 import com.sweattypalms.skyblock.ui.BaseGUI;
 import com.sweattypalms.skyblock.ui.ClickableItem;
 import com.sweattypalms.skyblock.ui.GUIRouter;

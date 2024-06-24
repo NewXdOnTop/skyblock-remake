@@ -1,4 +1,4 @@
-package com.sweattypalms.skyblock.slayers.zombie;
+package com.sweattypalms.skyblock.slayers.type.zombie;
 
 import com.sweattypalms.skyblock.SkyBlock;
 import com.sweattypalms.skyblock.core.helpers.EntityHelper;
