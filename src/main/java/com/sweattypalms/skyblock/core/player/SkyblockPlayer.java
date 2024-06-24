@@ -41,7 +41,8 @@ public class SkyblockPlayer {
     private final Player player;
     private BukkitTask tickRunnable;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private Regions lastKnownRegion = null;
 
     /**
@@ -92,12 +93,13 @@ public class SkyblockPlayer {
     }
 
     private int tickCount = 0;
+
     private void tick() {
         if (!this.player.isOnline()) {
             SkyblockPlayer.players.remove(this.player.getUniqueId());
             this.tickRunnable.cancel();
         }
-        if (this.player.isDead()){
+        if (this.player.isDead()) {
             return;
         }
         this.tickCount++;
@@ -108,13 +110,15 @@ public class SkyblockPlayer {
         this.statsManager.tick();
         this.actionBarManager.tick();
         this.inventoryManager.tick();
+
         this.scoreboardManager.updateScoreboard();
         RegionManager.updatePlayerRegion(this);
     }
 
     /**
-     *  Damage the player
+     * Damage the player
      *  TODO: Add various damage types
+     *
      * @param damage Damage to deal (With reduction)
      */
     public void damage(double damage) {
@@ -128,7 +132,7 @@ public class SkyblockPlayer {
         );
     }
 
-    public void damageWithReduction(double damage){
+    public void damageWithReduction(double damage) {
         double defense = this.statsManager.getMaxStats().get(Stats.DEFENSE);
         double finalDamage = DamageCalculator.calculateDamageReduction(defense, damage);
         this.damage(finalDamage);
@@ -136,17 +140,18 @@ public class SkyblockPlayer {
 
     /**
      * Send auto formatted message to player
+     *
      * @param s Message to send
      */
     public void sendMessage(String s) {
         this.player.sendMessage(PlaceholderFormatter.format(s));
     }
 
-    public long getLastUseTime(String key){
+    public long getLastUseTime(String key) {
         return this.cooldowns.getOrDefault(key, 0L);
     }
 
-    public void setLastUseTime(String key, long time){
+    public void setLastUseTime(String key, long time) {
         this.cooldowns.put(key, time);
     }
 }

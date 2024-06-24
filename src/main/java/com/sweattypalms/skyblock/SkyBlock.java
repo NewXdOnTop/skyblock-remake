@@ -113,7 +113,6 @@ public final class SkyBlock extends JavaPlugin {
         File configuration = new File(this.getDataFolder(), "skyblock_config.yml");
         if (!configuration.exists()) {
             try {
-             //   configuration.createNewFile();
                 FileConfiguration config = YamlConfiguration.loadConfiguration(configuration);
                 config.set("ratio", true);
                 config.set("server-ip", "mc.sweattypalms.me");

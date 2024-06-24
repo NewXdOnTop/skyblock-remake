@@ -1,6 +1,7 @@
 package com.sweattypalms.skyblock.commands.handlers;
 
 import com.sweattypalms.skyblock.commands.Command;
+import com.sweattypalms.skyblock.commands.CommandArgs;
 import com.sweattypalms.skyblock.commands.TabCompleter;
 import org.bukkit.entity.Player;
 
@@ -8,14 +9,19 @@ import java.util.List;
 
 public class TestCommands {
     @Command(name = "test", description = "Test command")
-    public void testCommand(Player player) {
+    public void testCommand(CommandArgs commandArgs) {
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         player.sendMessage("This is a test command.\nAnyways, here is the bee movie's script.");
         String script = getBeeMovieScript();
         player.sendMessage(script);
     }
 
     @TabCompleter(command = "test")
-    public List<String> testCompleter(Player player, String[] args) {
+    public List<String> testCompleter(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return List.of();
         return switch (args.length) {
             case 1 -> List.of("first");
             case 2 -> List.of("second");
@@ -1394,7 +1400,7 @@ public class TestCommands {
     }
 
     @Command(name = "breakpoint", description = "Used for debugging")
-    public void breakpointCommand(Player player) {
+    public void breakpointCommand(CommandArgs commandArgs) {
 
     }
 

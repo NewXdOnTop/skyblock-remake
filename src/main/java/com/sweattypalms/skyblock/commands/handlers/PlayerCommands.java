@@ -1,6 +1,7 @@
 package com.sweattypalms.skyblock.commands.handlers;
 
 import com.sweattypalms.skyblock.commands.Command;
+import com.sweattypalms.skyblock.commands.CommandArgs;
 import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
 import com.sweattypalms.skyblock.slayers.gui.SlayerSelectorGUI;
 import com.sweattypalms.skyblock.ui.GUIRouter;
@@ -13,22 +14,31 @@ import org.bukkit.entity.Player;
 
 public class PlayerCommands {
     public static String BATPHONE_COMMAND = "?slayer_gui";
+
     @Command(name = "?slayer_gui", description = "Opens the slayer menu")
-    public void slayerCommand(Player player, String[] args) {
+    public void slayerCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         SlayerSelectorGUI slayerSelectorGUI = new SlayerSelectorGUI();
         GUIRouter.openGUI(player, slayerSelectorGUI);
     }
 
 
     @Command(name = "hub", description = "Hub command")
-    public void hubCommand(Player player){
+    public void hubCommand(CommandArgs commandArgs) {
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         World world = Bukkit.getWorld("skyblock_hub");
         assert world != null;
         player.teleport(world.getSpawnLocation());
     }
 
-    @Command(name = "warp" , description = "Warp command")
-    public void warpCommand(Player player, String[] args) {
+    @Command(name = "warp", description = "Warp command")
+    public void warpCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         SkyblockPlayer skyblockPlayer = SkyblockPlayer.getSkyblockPlayer(player);
         if (args.length == 0) {
             skyblockPlayer.sendMessage("$cUsage: /warp <island>");
@@ -40,7 +50,7 @@ public class PlayerCommands {
         switch (islandName) {
             case "hub" -> teleportToIsland(player, "hub");
             case "end" -> teleportToIsland(player, "end");
-            default ->  {
+            default -> {
                 skyblockPlayer.sendMessage("$cThat island does not exist!");
                 return;
             }
@@ -57,7 +67,7 @@ public class PlayerCommands {
             SkyblockPlayer skyblockPlayer = SkyblockPlayer.getSkyblockPlayer(player);
             skyblockPlayer.sendMessage("$cThat island does not exist!");
 
-            if(player.isOp()) {
+            if (player.isOp()) {
                 skyblockPlayer.sendMessage("$cThis is supposed to be an island.\nIt's possible that the world is not loaded or doesn't exist.");
             }
 
@@ -68,8 +78,10 @@ public class PlayerCommands {
         player.teleport(location);
     }
 
-    @Command(name="credits", description="Credits command")
-    public void creditsCommand(Player player) {
+    @Command(name = "credits", description = "Credits command")
+    public void creditsCommand(CommandArgs commandArgs) {
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         SkyblockPlayer skyblockPlayer = SkyblockPlayer.getSkyblockPlayer(player);
         String obfus = "§c§l§kU";
 
@@ -79,8 +91,10 @@ public class PlayerCommands {
     }
 
     @Command(name = "bin", description = "Opens the trash menu")
-    public void binCommand(Player player) {
+    public void binCommand(CommandArgs commandArgs) {
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         player.sendMessage(ChatColor.RED + "This command is disabled for now!");
-         GUIRouter.openGUI(player, new BinGUI());
+        GUIRouter.openGUI(player, new BinGUI());
     }
 }

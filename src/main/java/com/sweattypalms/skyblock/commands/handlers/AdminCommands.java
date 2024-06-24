@@ -1,6 +1,7 @@
 package com.sweattypalms.skyblock.commands.handlers;
 
 import com.sweattypalms.skyblock.commands.Command;
+import com.sweattypalms.skyblock.commands.CommandArgs;
 import com.sweattypalms.skyblock.commands.TabCompleter;
 import com.sweattypalms.skyblock.core.enchants.EnchantManager;
 import com.sweattypalms.skyblock.core.enchants.builder.Enchantment;
@@ -33,7 +34,10 @@ import java.util.List;
 
 public class AdminCommands {
     @Command(name = "mob", description = "Mob command", op = true)
-    public void mobCommand(Player player, String[] args) {
+    public void mobCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         if (args.length == 0) {
             player.sendMessage(ChatColor.RED + "Usage: /mob id");
             return;
@@ -48,7 +52,10 @@ public class AdminCommands {
     }
 
     @Command(name = "sitem", description = "Item command", op = true)
-    public void itemCommand(Player player, String[] args) {
+    public void itemCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         if (args.length == 0) {
             ItemsGUI gui = new ItemsGUI();
             gui.open(player);
@@ -84,7 +91,10 @@ public class AdminCommands {
     }
 
     @TabCompleter(command = "sitem")
-    public List<String> itemTabCompleter(Player player, String[] args) {
+    public List<String> itemTabCompleter(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return List.of();
         // Smart tab completer to only serve the correct part :)
         if (args.length > 1) {
             return List.of();
@@ -100,7 +110,10 @@ public class AdminCommands {
 
 
     @Command(name = "stat", description = "Stat command", op = true)
-    public void statCommand(Player player, String[] args) {
+    public void statCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         if (args.length == 0) {
             player.sendMessage(ChatColor.RED + "Usage: /stat stat value");
             return;
@@ -122,7 +135,10 @@ public class AdminCommands {
     }
 
     @TabCompleter(command = "stat")
-    public List<String> statTabCompleter(Player player, String[] args) {
+    public List<String> statTabCompleter(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return List.of();
         if (args.length > 1) {
             return List.of();
         }
@@ -137,7 +153,10 @@ public class AdminCommands {
 
 
     @Command(name = "upgrade", description = "Upgrade command", op = true)
-    public void upgradeCommand(Player player, String[] args) {
+    public void upgradeCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         ItemStack item = player.getInventory().getItemInHand();
         if (SkyblockItem.fromItemStack(item) == null) {
             player.sendMessage(ChatColor.RED + "You must be holding a skyblock item!");
@@ -152,7 +171,10 @@ public class AdminCommands {
     }
 
     @Command(name = "reforge", description = "Reforge command", op = true)
-    public void reforgeCommand(Player player, String[] args) {
+    public void reforgeCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         ItemStack item = player.getInventory().getItemInHand();
         if (SkyblockItem.fromItemStack(item) == null) {
             player.sendMessage(ChatColor.RED + "You must be holding a skyblock item!");
@@ -189,8 +211,10 @@ public class AdminCommands {
     }
 
     @TabCompleter(command = "reforge")
-    public List<String> reforgeTabCompleter(Player player, String[] args) {
-
+    public List<String> reforgeTabCompleter(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return List.of();
         if (args.length == 2) {
             return List.of("force");
         }
@@ -207,7 +231,10 @@ public class AdminCommands {
     }
 
     @Command(name = "dragloot", description = "Drag loot command", op = true)
-    public void dragLootCommand(Player player, String[] args) {
+    public void dragLootCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         Location location = player.getLocation().getBlock().getLocation();
         location.add(3, 0, 0);
         while (location.getBlock().getType() != Material.AIR) {
@@ -219,7 +246,10 @@ public class AdminCommands {
     }
 
     @Command(name = "slayer_id", description = "Slayer command", op = true)
-    public void slayerCommand(Player player, String[] args) {
+    public void slayerCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         if (args.length == 0) {
             player.sendMessage(ChatColor.RED + "Usage: /slayer id");
             return;
@@ -237,7 +267,10 @@ public class AdminCommands {
     }
 
     @TabCompleter(command = "slayer_id")
-    public List<String> slayerTabCompleter(Player player, String[] args) {
+    public List<String> slayerTabCompleter(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return List.of();
         List<String> slayerMobs = MobManager.MOBS_LIST.keySet().stream().filter(s -> s.contains("+slayer")).toList();
 
         if (args.length > 1) {
@@ -253,7 +286,10 @@ public class AdminCommands {
     }
 
     @Command(name = "?cancel_slayer", description = "Cancel slayer command", op = true)
-    public void cancelSlayerCommand(Player player, String[] args) {
+    public void cancelSlayerCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         SkyblockPlayer skyblockPlayer = SkyblockPlayer.getSkyblockPlayer(player);
         skyblockPlayer.getSlayerManager().cancelSlayer();
         skyblockPlayer.sendMessage(" $c$lSlayer quest cancelled!");
@@ -274,7 +310,10 @@ public class AdminCommands {
     }
 
     @Command(name = "sbrl", description = "Skyblock reload command", op = true)
-    public void sbrlCommand(Player player, String[] args) {
+    public void sbrlCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         player.sendMessage(ChatColor.YELLOW + "Reloading Skyblock...");
 
         if (!Bukkit.getPluginManager().isPluginEnabled("PluginManager")) {
@@ -287,7 +326,10 @@ public class AdminCommands {
     }
 
     @Command(name = "powerup", description = "Give yourself lots of stats", op = true)
-    public void powerupCommand(Player player, String[] args) {
+    public void powerupCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         SkyblockPlayer skyblockPlayer = SkyblockPlayer.getSkyblockPlayer(player);
         StatsManager m = skyblockPlayer.getStatsManager();
         m.setBaseStat(Stats.HEALTH, 100_000);
@@ -303,7 +345,10 @@ public class AdminCommands {
     }
 
     @Command(name = "heal", description = "Give yourself complete healing", op = true)
-    public void healCommand(Player player, String[] args) {
+    public void healCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         SkyblockPlayer skyblockPlayer = SkyblockPlayer.getSkyblockPlayer(player);
         double maxHealth = skyblockPlayer.getStatsManager().getMaxStats().get(Stats.HEALTH);
 
@@ -317,7 +362,10 @@ public class AdminCommands {
     }
 
     @Command(name = "currency", description = "Give yourself money / bits", op = true)
-    public void currencyCommand(Player player, String[] args) {
+    public void currencyCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         SkyblockPlayer skyblockPlayer = SkyblockPlayer.getSkyblockPlayer(player);
 
         if (args.length == 0) {
@@ -356,8 +404,10 @@ public class AdminCommands {
     }
 
     @Command(name = "enchant", description = "Enchant command", op = true)
-    public void enchantCommand(Player player, String[] args) {
-
+    public void enchantCommand(CommandArgs commandArgs) {
+        String[] args = commandArgs.getArgs();
+        Player player = commandArgs.getPlayer();
+        if (player == null) return;
         SkyblockPlayer skyblockPlayer = SkyblockPlayer.getSkyblockPlayer(player);
 
         if (args.length == 0) {

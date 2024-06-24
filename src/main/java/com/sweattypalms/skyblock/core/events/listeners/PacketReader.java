@@ -1,8 +1,6 @@
 package com.sweattypalms.skyblock.core.events.listeners;
 
-import com.sweattypalms.skyblock.commands.CommandListener;
 import io.netty.channel.*;
-import net.minecraft.server.v1_8_R3.PacketPlayInTabComplete;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -34,13 +32,10 @@ public class PacketReader implements Listener {
     }
 
     public void injectPlayer(Player p) {
-        CommandListener commandListener = new CommandListener();
         ChannelDuplexHandler channelDuplexHandler = new ChannelDuplexHandler() {
             @Override
             public void channelRead(ChannelHandlerContext channelHandlerContext, Object packet) throws Exception {
                 super.channelRead(channelHandlerContext, packet);
-                if (packet instanceof PacketPlayInTabComplete)
-                    commandListener.onTabCompleteEvent((PacketPlayInTabComplete) packet, p);
             }
 
             @Override
