@@ -3,7 +3,6 @@ package com.sweattypalms.skyblock.commands;
 import com.sweattypalms.skyblock.SkyBlock;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.SimpleCommandMap;
 import org.bukkit.command.defaults.BukkitCommand;
@@ -21,7 +20,7 @@ import java.util.*;
 public class CommandRegistry {
     private static CommandRegistry instance;
     private final Map<String, MethodContainer> commands = new HashMap<>();
-    private static final SimpleCommandMap simpleCommandMap;
+    private static final SimpleCommandMap simpleCommandMap; //We will cache the commandMap
 
     static {
         try {
@@ -51,7 +50,6 @@ public class CommandRegistry {
     }
 
     public void registerAll() {
-        //Reflections reflections = new Reflections("com.sweattypalms.skyblock.commands.handlers");
         Reflections reflections = new Reflections(new ConfigurationBuilder()
                 .setUrls(ClasspathHelper.forPackage("com.sweattypalms.skyblock.commands.handlers"))
                 .setScanners(Scanners.MethodsAnnotated));
@@ -62,7 +60,7 @@ public class CommandRegistry {
             Object instance;
             try {
                 instance = method.getDeclaringClass().getDeclaredConstructor().newInstance();
-                register(instance);
+                this.register(instance);
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
                      InvocationTargetException e) {
                 e.printStackTrace();
@@ -70,7 +68,7 @@ public class CommandRegistry {
         }
 
         for (MethodContainer container : commands.values()) {
-            registerCommandWithBukkit(container);
+            this.registerCommandWithBukkit(container);
         }
     }
 
@@ -106,7 +104,8 @@ public class CommandRegistry {
      * Okay so this is a better method than the old one
      * because it doesn't require any event and the command gets registered as a bukkit command.
      * Registers the command with Bukkit.
-     * @param container The container containing the command method.
+     *
+     * @param container {@link MethodContainer} The container containing the command method.
      */
     private void registerCommandWithBukkit(final MethodContainer container) {
         final Command cmdInfo = container.commandMethod.getAnnotation(Command.class);
@@ -118,6 +117,9 @@ public class CommandRegistry {
         }
     }
 
+    /*
+     * This method is used to execute the command.
+     */
     public boolean executeCommand(final CommandArgs sbCommandArgs) {
         final String command = sbCommandArgs.getCommand().getName();
         final Player player = sbCommandArgs.getPlayer();
