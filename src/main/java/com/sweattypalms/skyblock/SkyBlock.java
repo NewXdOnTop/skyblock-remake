@@ -51,7 +51,7 @@ public final class SkyBlock extends JavaPlugin {
             configs();
 
             long end = System.currentTimeMillis() - start;
-            System.out.println(ChatColor.GREEN + "Skyblock has been enabled! This took " + ChatColor.YELLOW + end + "ms");
+            System.out.println(ChatColor.GREEN + "SkyBlock has been enabled! This took " + ChatColor.YELLOW + end + "ms");
         });
 
         drawAscii();
@@ -157,6 +157,6 @@ public final class SkyBlock extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        System.out.println(ChatColor.RED + "Skyblock has been disabled!");
+        System.out.println(ChatColor.RED + "SkyBlock has been disabled!");
     }
 }

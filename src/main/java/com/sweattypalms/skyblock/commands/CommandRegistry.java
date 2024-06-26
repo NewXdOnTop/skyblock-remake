@@ -49,6 +49,10 @@ public class CommandRegistry {
         return this.commands.size();
     }
 
+    /**
+     * Here we are using {@link Reflections} to automatically register
+     * all the commands in the package {@code com.sweattypalms.skyblock.commands.handlers}.
+     */
     public void registerAll() {
         Reflections reflections = new Reflections(new ConfigurationBuilder()
                 .setUrls(ClasspathHelper.forPackage("com.sweattypalms.skyblock.commands.handlers"))
@@ -66,7 +70,7 @@ public class CommandRegistry {
                 e.printStackTrace();
             }
         }
-
+        //Telling the command map to register the command as a bukkit command.
         for (MethodContainer container : commands.values()) {
             this.registerCommandWithBukkit(container);
         }
@@ -147,13 +151,10 @@ public class CommandRegistry {
                 container.commandMethod.invoke(container.instance, sbCommandArgs);
             } else {
                 //Running the command async because performance matters.
-                Bukkit.getScheduler().runTaskAsynchronously(SkyBlock.getInstance(), new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            container.commandMethod.invoke(container.instance, sbCommandArgs);
-                        } catch (Exception ignored) {
-                        }
+                Bukkit.getScheduler().runTaskAsynchronously(SkyBlock.getInstance(), () -> {
+                    try {
+                        container.commandMethod.invoke(container.instance, sbCommandArgs);
+                    } catch (Exception ignored) {
                     }
                 });
             }
@@ -192,7 +193,6 @@ public class CommandRegistry {
     }
 
     public class CommandManagerExecutor extends BukkitCommand {
-        private final String command;
 
         /**
          * Constructor for the command manager executor.
@@ -201,14 +201,11 @@ public class CommandRegistry {
          */
         public CommandManagerExecutor(final Command cmd) {
             super(cmd.name());
-            this.command = cmd.name();
             this.setDescription(cmd.description());
             this.setUsage(cmd.usage());
             this.setPermission(cmd.permission());
             this.setPermissionMessage(cmd.noPerm());
-            this.setName(command);
             if (cmd.aliases().length > 0) this.setAliases(Arrays.asList(cmd.aliases()));
-
         }
 
         @Override
@@ -218,7 +215,7 @@ public class CommandRegistry {
 
 
         public boolean onCommand(final CommandSender sender, final org.bukkit.command.Command cmd, final String label, final String[] args) {
-            if (cmd.getName().equalsIgnoreCase(this.command)) {
+            if (cmd.getName().equalsIgnoreCase(this.getName())) {
                 final CommandArgs sbCommandArgs = new CommandArgs(sender, this, label, args);
                 if (CommandRegistry.this.executeCommand(sbCommandArgs)) return true;
             }
@@ -229,16 +226,17 @@ public class CommandRegistry {
         public List<String> tabComplete(final CommandSender sender, final String alias, final String[] args) throws IllegalArgumentException {
             final CommandArgs sbCommandArgs = new CommandArgs(sender, this, alias, args);
             final List<String> completions = CommandRegistry.this.handleTabCompletion(sbCommandArgs);
-            final List<String> temp = new ArrayList<>();
+            final List<String> results = new ArrayList<>();
             for (final String a : completions) {
                 try {
                     if (a.toLowerCase().startsWith(args[args.length - 1].toLowerCase())) {
-                        temp.add(a);
+                        results.add(a);
                     }
                 } catch (ArrayIndexOutOfBoundsException ignored) {
+                    //Sometimes its throws an exception, so we ignore it.
                 }
             }
-            return !temp.isEmpty() ? temp : completions;
+            return !results.isEmpty() ? results : completions;
         }
 
     }
