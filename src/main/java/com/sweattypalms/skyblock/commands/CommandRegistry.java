@@ -233,7 +233,7 @@ public class CommandRegistry {
                         results.add(a);
                     }
                 } catch (ArrayIndexOutOfBoundsException ignored) {
-                    //Sometimes its throws an exception, so we ignore it.
+                    //Sometimes it throws an exception, so we ignore it.
                 }
             }
             return !results.isEmpty() ? results : completions;
