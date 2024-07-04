@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.slayers.events;
 
+import com.cryptomorin.xseries.XSound;
 import com.sweattypalms.skyblock.core.events.def.SkyblockDeathEvent;
 import com.sweattypalms.skyblock.core.events.def.SkyblockXpEvent;
 import com.sweattypalms.skyblock.core.helpers.PlaceholderFormatter;
@@ -7,7 +8,6 @@ import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
 import com.sweattypalms.skyblock.core.player.sub.SlayerManager;
 import com.sweattypalms.skyblock.slayers.Slayer;
 import net.minecraft.server.v1_8_R3.EntityLiving;
-import org.bukkit.Sound;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftLivingEntity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -55,8 +55,8 @@ public class SlayerListener implements Listener {
 
         Player player = event.getSkyblockPlayer().getPlayer();
         player.sendMessage(finalMessage);
-
-        player.playSound(player.getLocation(), Sound.ENDERDRAGON_GROWL, 10, 1);
+        XSound.ENTITY_ENDER_DRAGON_GROWL.play(player, 10.0F, 1.0F);
+        //player.playSound(player.getLocation(), Sound.ENDERDRAGON_GROWL, 10, 1);
 
         event.getSkyblockPlayer().getSlayerManager().setActiveSlayer(event.getSlayer());
     }

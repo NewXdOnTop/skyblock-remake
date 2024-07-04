@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.items.builder.abilities;
 
+import com.cryptomorin.xseries.XSound;
 import com.sweattypalms.skyblock.core.events.def.SkyblockInteractEvent;
 import com.sweattypalms.skyblock.core.events.def.SkyblockPlayerDamageEntityEvent;
 import com.sweattypalms.skyblock.core.helpers.MozangStuff;
@@ -210,7 +211,8 @@ public class AbilityManager {
             Arrow arrow = as.launchProjectile(Arrow.class);
             arrow.setShooter(player);
 
-            player.playSound(player.getLocation(), Sound.SHOOT_ARROW, 1, 1);
+           // player.playSound(player.getLocation(), Sound.SHOOT_ARROW, 1, 1);
+            XSound.ENTITY_ARROW_SHOOT.play(player, 1, 1);
             as.remove();
 
         }

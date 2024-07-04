@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.items.types.none.items;
 
+import com.cryptomorin.xseries.XSound;
 import com.sweattypalms.skyblock.core.events.def.SkyblockInteractEvent;
 import com.cryptomorin.xseries.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
@@ -12,7 +13,6 @@ import com.sweattypalms.skyblock.core.items.builder.abilities.types.ICooldown;
 import com.sweattypalms.skyblock.core.items.builder.abilities.types.ITriggerableAbility;
 import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
-import org.bukkit.Sound;
 import org.bukkit.event.Event;
 
 import java.util.HashMap;
@@ -68,7 +68,7 @@ public class AspectOfTheJerry extends SkyblockItem implements IHasAbility {
             if (!(_e instanceof SkyblockInteractEvent event)) return;
             ICooldown.super.apply(_e);
             SkyblockPlayer skyblockPlayer = event.getSkyblockPlayer();
-            skyblockPlayer.getPlayer().playSound(skyblockPlayer.getPlayer().getLocation(), Sound.VILLAGER_IDLE, 1.0F, 1.0F);
+            XSound.ENTITY_VILLAGER_AMBIENT.play(skyblockPlayer.getPlayer(), 1.0F, 1.0F);
         }
 
         @Override

@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.player.sub;
 
+import com.cryptomorin.xseries.XSound;
 import com.sweattypalms.skyblock.api.ParticleEffect;
 import com.sweattypalms.skyblock.api.sequence.Sequence;
 import com.sweattypalms.skyblock.api.sequence.SequenceAction;
@@ -14,7 +15,6 @@ import lombok.Setter;
 import net.minecraft.server.v1_8_R3.EntityLiving;
 import org.bukkit.Effect;
 import org.bukkit.Location;
-import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftLivingEntity;
 import org.bukkit.entity.LivingEntity;
@@ -67,7 +67,8 @@ public class SlayerManager extends PlayerManager {
                     e2.display(0, 0, 0, 0, 10, tLocation, 20);
                     e3.display(0, 0, 0, 0, 10, tLocation, 20);
 
-                    world.playSound(tLocation, Sound.CAT_HISS, 0.1f, 1);
+                 //   world.playSound(tLocation, Sound.CAT_HISS, 0.1f, 1);
+                    XSound.ENTITY_CAT_HISS.play(tLocation, 0.1f, 1);
                 }
                 , 3);
 
@@ -80,7 +81,8 @@ public class SlayerManager extends PlayerManager {
 
                     World world = deadEntity.getWorld();
                     world.playEffect(tLocation, Effect.EXPLOSION_HUGE, 1);
-                    world.playSound(tLocation, Sound.EXPLODE, 1, 1);
+                  //  world.playSound(tLocation, Sound.EXPLODE, 1, 1);
+                    XSound.ENTITY_GENERIC_EXPLODE.play(tLocation, 1, 1);
                 }
                 , 3);
 

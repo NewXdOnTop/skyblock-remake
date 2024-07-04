@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.items.types.slayer.enderman.items;
 
+import com.cryptomorin.xseries.XSound;
 import com.sweattypalms.skyblock.SkyBlock;
 import com.sweattypalms.skyblock.api.ParticleEffect;
 import com.sweattypalms.skyblock.core.events.def.SkyblockInteractEvent;
@@ -130,7 +131,8 @@ public class Terminator extends SkyblockItem implements IHasAbility, IShortBow {
             arrowRight.setVelocity(rotateAroundY(arrow.getVelocity(), Math.toRadians(5)));
             arrowLeft.setVelocity(rotateAroundY(arrow.getVelocity(), Math.toRadians(-5)));
 
-            player.playSound(player.getLocation(), Sound.SHOOT_ARROW, 1, 1);
+          //  player.playSound(player.getLocation(), Sound.SHOOT_ARROW, 1, 1);
+            XSound.ENTITY_ARROW_SHOOT.play(player, 1, 1);
             as.remove();
         }
     }

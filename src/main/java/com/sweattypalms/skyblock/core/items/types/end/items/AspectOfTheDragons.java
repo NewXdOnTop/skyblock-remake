@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.items.types.end.items;
 
+import com.cryptomorin.xseries.XSound;
 import com.sweattypalms.skyblock.api.ParticleEffect;
 import com.sweattypalms.skyblock.core.events.def.SkyblockInteractEvent;
 import com.sweattypalms.skyblock.core.events.def.SkyblockPlayerDamageEntityEvent;
@@ -79,7 +80,8 @@ public class AspectOfTheDragons extends SkyblockItem implements IHasAbility {
             SkyblockPlayer skyblockPlayer = skyblockInteractEvent.getSkyblockPlayer();
             Player player = skyblockPlayer.getPlayer();
             MathHelper.spiralParticles(player, 0.1, 1.5, ParticleEffect.FLAME);
-            player.playSound(player.getLocation(), Sound.ENDERDRAGON_GROWL, 10, 1);
+          //  player.playSound(player.getLocation(), Sound.ENDERDRAGON_GROWL, 10, 1);
+            XSound.ENTITY_ENDER_DRAGON_GROWL.play(player, 10, 1);
 
             double maxDistance = 4.0;
             double maxKnockback = 4.0;

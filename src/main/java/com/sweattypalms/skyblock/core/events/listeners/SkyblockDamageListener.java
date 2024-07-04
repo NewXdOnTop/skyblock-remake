@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.events.listeners;
 
+import com.cryptomorin.xseries.XSound;
 import com.sweattypalms.skyblock.SkyBlock;
 import com.sweattypalms.skyblock.core.enchants.EnchantManager;
 import com.sweattypalms.skyblock.core.events.def.SkyblockMobDamagePlayerEvent;
@@ -14,7 +15,6 @@ import com.sweattypalms.skyblock.core.mobs.builder.MobAttributes;
 import com.sweattypalms.skyblock.core.mobs.builder.SkyblockMob;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
 import org.bukkit.Location;
-import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -106,8 +106,8 @@ public class SkyblockDamageListener implements Listener {
 
         skyblockMob.damageEntityWithCause(event);
 
-        if(event.getDamageType() == SkyblockPlayerDamageEntityEvent.DamageType.ABILITY &&
-        !event.isApplyFerocityOnAbility()) return;
+        if (event.getDamageType() == SkyblockPlayerDamageEntityEvent.DamageType.ABILITY &&
+                !event.isApplyFerocityOnAbility()) return;
 
         /* ------- FEROCITY ------- */
 
@@ -129,8 +129,10 @@ public class SkyblockDamageListener implements Listener {
                     skyblockMob.damageEntityWithCause(event);
 
                     /* ------- SOUND ------- */
-                    soundLocation.getWorld().playSound(soundLocation, Sound.FIRE_IGNITE, 1.5f, 0);
-                    soundLocation.getWorld().playSound(soundLocation, Sound.IRONGOLEM_HIT, 0.2f, 2f);
+                    // soundLocation.getWorld().playSound(soundLocation, Sound.FIRE_IGNITE, 1.5f, 0);
+                    XSound.ITEM_FLINTANDSTEEL_USE.play(soundLocation, 1.5f, 0);
+                    XSound.ENTITY_IRON_GOLEM_HURT.play(soundLocation, 0.2f, 2f);
+                   // soundLocation.getWorld().playSound(soundLocation, Sound.IRONGOLEM_HIT, 0.2f, 2f);
 
                     /* ------- SOUND ------- */
                 }

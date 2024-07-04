@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.items.types.slayer;
 
+import com.cryptomorin.xseries.XSound;
 import com.sweattypalms.skyblock.api.sequence.Sequence;
 import com.sweattypalms.skyblock.api.sequence.SequenceAction;
 import com.sweattypalms.skyblock.commands.handlers.PlayerCommands;
@@ -19,7 +20,6 @@ import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.Sound;
 import org.bukkit.event.Event;
 
 import java.util.HashMap;
@@ -87,8 +87,9 @@ public class MaddoxBatphone extends SkyblockItem implements IHeadHelmet, IHasAbi
 
                     Sequence soundSequence = new Sequence();
 
-                    for (AtomicInteger i = new AtomicInteger(0); i.getAndIncrement()<6;) {
-                        soundSequence.add(new SequenceAction(() -> player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.NOTE_PLING, 1, i.get()*5), 2));
+                    for (AtomicInteger i = new AtomicInteger(0); i.getAndIncrement() < 6; ) {
+                        //soundSequence.add(new SequenceAction(() -> player.getPlayer().playSound(player.getPlayer().getLocation(), Sound.NOTE_PLING, 1, i.get()*5), 2));
+                        soundSequence.add(new SequenceAction(() -> XSound.BLOCK_NOTE_BLOCK_PLING.play(player.getPlayer(), 1, i.get() * 5), 2));
                     }
 
                     soundSequence.start();

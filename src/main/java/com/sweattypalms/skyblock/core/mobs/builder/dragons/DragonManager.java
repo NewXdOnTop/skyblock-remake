@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.mobs.builder.dragons;
 
+import com.cryptomorin.xseries.XSound;
 import com.sweattypalms.skyblock.api.Point;
 import com.sweattypalms.skyblock.api.sequence.Sequence;
 import com.sweattypalms.skyblock.api.sequence.SequenceAction;
@@ -251,7 +252,8 @@ public class DragonManager {
 
         sequence.start();
         Location soundLoc = new Location(endWorld, 0, 35, 0);
-        endWorld.playSound(soundLoc, Sound.ENDERDRAGON_DEATH, 8, 1);
+       // endWorld.playSound(soundLoc, Sound.ENDERDRAGON_DEATH, 8, 1);
+        XSound.ENTITY_ENDER_DRAGON_DEATH.play(soundLoc, 8, 1);
 
     }
 
