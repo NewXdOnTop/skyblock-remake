@@ -16,6 +16,7 @@ import com.sweattypalms.skyblock.core.items.builder.abilities.types.ITriggerable
 import com.sweattypalms.skyblock.core.items.builder.abilities.types.IUsageCost;
 import com.sweattypalms.skyblock.core.items.builder.armor.IDyedArmor;
 import com.sweattypalms.skyblock.core.items.builder.armor.IHeadHelmet;
+import com.sweattypalms.skyblock.core.items.builder.item.IDungeon;
 import com.sweattypalms.skyblock.core.items.builder.item.IShortBow;
 import com.sweattypalms.skyblock.core.items.builder.reforges.IAdvancedReforge;
 import com.sweattypalms.skyblock.core.items.builder.reforges.Reforge;
@@ -451,6 +452,7 @@ public abstract class SkyblockItem {
     public List<String> f_getRarityLine(boolean upgraded) {
         List<String> lore = new ArrayList<>();
 
+        boolean isDungeonItem = this instanceof IDungeon;
         Rarity rarity = this.rarity; // Mutable copy
 
         if (upgraded) rarity = rarity.getUpgraded();
@@ -464,7 +466,7 @@ public abstract class SkyblockItem {
 
         String rarityLine = "";
         if (upgraded) rarityLine += rarity.getColor() + upgradedObfuscationMark;
-        rarityLine += rarity.getColor() + "§l" + (upgraded ? " " : "") + rarity + " " + type;
+        rarityLine += rarity.getColor() + "§l" + (upgraded ? " " : "") + rarity + " " + (isDungeonItem ? "DUNGEON" : "") + type;
         if (upgraded) rarityLine += " " + upgradedObfuscationMark;
 
         lore.add(rarityLine);
