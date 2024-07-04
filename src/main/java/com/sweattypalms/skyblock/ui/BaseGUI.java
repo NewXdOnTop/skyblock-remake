@@ -1,6 +1,6 @@
 package com.sweattypalms.skyblock.ui;
 
-import com.sweattypalms.skyblock.core.helpers.XMaterial;
+import com.cryptomorin.xseries.XMaterial;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

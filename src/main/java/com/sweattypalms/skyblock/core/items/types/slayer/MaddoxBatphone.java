@@ -5,7 +5,7 @@ import com.sweattypalms.skyblock.api.sequence.SequenceAction;
 import com.sweattypalms.skyblock.commands.handlers.PlayerCommands;
 import com.sweattypalms.skyblock.core.events.def.SkyblockInteractEvent;
 import com.sweattypalms.skyblock.core.events.def.SkyblockPlayerEvent;
-import com.sweattypalms.skyblock.core.helpers.XMaterial;
+import com.cryptomorin.xseries.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;

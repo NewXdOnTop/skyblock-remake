@@ -1,7 +1,7 @@
 package com.sweattypalms.skyblock.core.mobs.regions.graveyard;
 
 import com.sweattypalms.skyblock.core.helpers.EntityHelper;
-import com.sweattypalms.skyblock.core.helpers.XMaterial;
+import com.cryptomorin.xseries.XMaterial;
 import com.sweattypalms.skyblock.core.mobs.builder.IRegionEntity;
 import com.sweattypalms.skyblock.core.mobs.builder.ISkyblockMob;
 import com.sweattypalms.skyblock.core.regions.Regions;

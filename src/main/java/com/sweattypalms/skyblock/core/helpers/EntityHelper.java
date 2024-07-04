@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.helpers;
 
+import com.cryptomorin.xseries.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
 import net.minecraft.server.v1_8_R3.EntityLiving;
 import org.bukkit.Material;

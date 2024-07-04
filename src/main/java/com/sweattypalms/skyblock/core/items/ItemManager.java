@@ -1,6 +1,6 @@
 package com.sweattypalms.skyblock.core.items;
 
-import com.sweattypalms.skyblock.core.helpers.XMaterial;
+import com.cryptomorin.xseries.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SimpleSkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;

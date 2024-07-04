@@ -6,7 +6,7 @@ import com.sweattypalms.skyblock.api.sequence.SequenceAction;
 import com.sweattypalms.skyblock.core.helpers.MozangStuff;
 import com.sweattypalms.skyblock.core.helpers.PDCHelper;
 import com.sweattypalms.skyblock.core.helpers.PlaceholderFormatter;
-import com.sweattypalms.skyblock.core.helpers.XMaterial;
+import com.cryptomorin.xseries.XMaterial;
 import com.sweattypalms.skyblock.core.items.ItemManager;
 import com.sweattypalms.skyblock.core.items.types.end.items.RemnantOfTheEye;
 import com.sweattypalms.skyblock.core.items.types.end.items.SummoningEye;

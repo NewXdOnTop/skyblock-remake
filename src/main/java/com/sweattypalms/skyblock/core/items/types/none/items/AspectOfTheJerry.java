@@ -1,7 +1,7 @@
 package com.sweattypalms.skyblock.core.items.types.none.items;
 
 import com.sweattypalms.skyblock.core.events.def.SkyblockInteractEvent;
-import com.sweattypalms.skyblock.core.helpers.XMaterial;
+import com.cryptomorin.xseries.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -12,7 +12,6 @@ import com.sweattypalms.skyblock.core.items.builder.abilities.types.ICooldown;
 import com.sweattypalms.skyblock.core.items.builder.abilities.types.ITriggerableAbility;
 import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
-import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.event.Event;
 

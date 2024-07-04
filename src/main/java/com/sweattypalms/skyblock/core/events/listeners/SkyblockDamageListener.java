@@ -129,7 +129,6 @@ public class SkyblockDamageListener implements Listener {
                     skyblockMob.damageEntityWithCause(event);
 
                     /* ------- SOUND ------- */
-
                     soundLocation.getWorld().playSound(soundLocation, Sound.FIRE_IGNITE, 1.5f, 0);
                     soundLocation.getWorld().playSound(soundLocation, Sound.IRONGOLEM_HIT, 0.2f, 2f);
 
