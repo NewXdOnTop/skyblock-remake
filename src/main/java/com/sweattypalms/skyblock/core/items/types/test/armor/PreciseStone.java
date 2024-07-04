@@ -1,10 +1,10 @@
 package com.sweattypalms.skyblock.core.items.types.test.armor;
 
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
 import com.sweattypalms.skyblock.core.items.builder.armor.IHeadHelmet;
-import org.bukkit.Material;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +17,7 @@ public class PreciseStone extends SkyblockItem implements IHeadHelmet {
         super(
                 ID,
                 "Precise Stone",
-                Material.SKULL_ITEM,
+                XMaterial.SKELETON_WALL_SKULL.parseMaterial(),
                 List.of(
                         "$7h!"
                 ),

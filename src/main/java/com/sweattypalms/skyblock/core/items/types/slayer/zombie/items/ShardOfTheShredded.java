@@ -1,12 +1,10 @@
 package com.sweattypalms.skyblock.core.items.types.slayer.zombie.items;
 
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
 import com.sweattypalms.skyblock.core.items.builder.armor.IHeadHelmet;
-import org.bukkit.Material;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,7 +14,7 @@ public class ShardOfTheShredded extends SkyblockItem implements IHeadHelmet {
         super(
                 ID,
                 "Shard Of The Shredded",
-                Material.SKULL_ITEM,
+                XMaterial.SKELETON_WALL_SKULL.parseMaterial(),
                 List.of(
                         "$7The core of a powerful weapon,",
                         "$7dropped by the Atoned Horror,"

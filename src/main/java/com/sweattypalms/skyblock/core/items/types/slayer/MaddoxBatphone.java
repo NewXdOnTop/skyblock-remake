@@ -5,6 +5,7 @@ import com.sweattypalms.skyblock.api.sequence.SequenceAction;
 import com.sweattypalms.skyblock.commands.handlers.PlayerCommands;
 import com.sweattypalms.skyblock.core.events.def.SkyblockInteractEvent;
 import com.sweattypalms.skyblock.core.events.def.SkyblockPlayerEvent;
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -16,10 +17,8 @@ import com.sweattypalms.skyblock.core.items.builder.abilities.types.ITriggerable
 import com.sweattypalms.skyblock.core.items.builder.armor.IHeadHelmet;
 import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
-import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.event.Event;
 
@@ -37,7 +36,7 @@ public class MaddoxBatphone extends SkyblockItem implements IHeadHelmet, IHasAbi
         super(
                 "maddox_batphone",
                 "Maddox Batphone",
-                Material.SKULL_ITEM,
+                XMaterial.SKELETON_WALL_SKULL.parseMaterial(),
                 null,
                 new HashMap<>(),
                 Rarity.UNCOMMON,

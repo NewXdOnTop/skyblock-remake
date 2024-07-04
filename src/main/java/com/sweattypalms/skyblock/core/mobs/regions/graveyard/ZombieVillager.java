@@ -1,6 +1,7 @@
 package com.sweattypalms.skyblock.core.mobs.regions.graveyard;
 
 import com.sweattypalms.skyblock.core.helpers.EntityHelper;
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.mobs.builder.IRegionEntity;
 import com.sweattypalms.skyblock.core.mobs.builder.ISkyblockMob;
 import com.sweattypalms.skyblock.core.regions.Regions;
@@ -8,7 +9,6 @@ import com.sweattypalms.skyblock.core.mobs.builder.SkyblockMob;
 
 import net.minecraft.server.v1_8_R3.EntityZombie;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
 import net.minecraft.server.v1_8_R3.EntityLiving;
 
@@ -28,7 +28,7 @@ public class ZombieVillager extends EntityZombie implements ISkyblockMob, IRegio
                 .setLevel(1)
         ;
         this.setVillager(true);
-        EntityHelper.equipAllArmor(this, Material.LEATHER);
+        EntityHelper.equipAllArmor(this, XMaterial.LEATHER);
     }
 
     @Override

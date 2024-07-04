@@ -31,8 +31,8 @@ public class EntityHelper {
         }
     }
 
-    public static void equipAllArmor(EntityLiving entityLiving, Material armor) {
-        equipArmor(entityLiving, new SkyblockItemType[]{SkyblockItemType.HELMET, SkyblockItemType.CHESTPLATE, SkyblockItemType.LEGGINGS, SkyblockItemType.BOOTS}, armor);
+    public static void equipAllArmor(EntityLiving entityLiving, XMaterial armor) {
+        equipArmor(entityLiving, new SkyblockItemType[]{SkyblockItemType.HELMET, SkyblockItemType.CHESTPLATE, SkyblockItemType.LEGGINGS, SkyblockItemType.BOOTS}, armor.parseMaterial());
     }
 
     public static Material getArmorMaterial(Material baseMaterial, SkyblockItemType armorType) {

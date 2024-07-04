@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.items.types.end.armor;
 
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -7,12 +8,12 @@ import com.sweattypalms.skyblock.core.items.builder.abilities.Ability;
 import com.sweattypalms.skyblock.core.items.builder.abilities.IHasAbility;
 import com.sweattypalms.skyblock.core.items.builder.armor.IHeadHelmet;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
-import org.bukkit.Material;
 
 import java.util.List;
 import java.util.Map;
 
 public class SuperiorHelmet extends SkyblockItem implements IHasAbility, IHeadHelmet {
+
     public static final String ID = "superior_dragon_helmet";
     private static final Map<Stats, Double> stats = Map.of(
             Stats.STRENGTH, 10d,
@@ -27,7 +28,7 @@ public class SuperiorHelmet extends SkyblockItem implements IHasAbility, IHeadHe
         super(
                 ID,
                 "Superior Dragon Helmet",
-                Material.SKULL_ITEM,
+                XMaterial.SKELETON_WALL_SKULL.parseMaterial(),
                 null,
                 stats,
                 Rarity.LEGENDARY,

@@ -1,6 +1,7 @@
 package com.sweattypalms.skyblock.core.items.types.end.armor;
 
 import com.sweattypalms.skyblock.core.events.def.SkyblockPlayerDamageEntityEvent;
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -13,7 +14,6 @@ import com.sweattypalms.skyblock.core.items.types.end.items.AspectOfTheDragons;
 import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
 import com.sweattypalms.skyblock.core.player.sub.stats.StatsManager;
-import org.bukkit.Material;
 import org.bukkit.event.Event;
 import org.bukkit.inventory.ItemStack;
 
@@ -35,7 +35,7 @@ public class SuperiorChestplate extends SkyblockItem implements IHasAbility, IDy
         super(
                 ID,
                 "Superior Dragon Chestplate",
-                Material.LEATHER_CHESTPLATE,
+                XMaterial.LEATHER_CHESTPLATE.parseMaterial(),
                 null,
                 stats,
                 Rarity.LEGENDARY,

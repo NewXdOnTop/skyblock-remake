@@ -1,12 +1,10 @@
 package com.sweattypalms.skyblock.core.items.types.slayer.zombie.items;
 
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
 import com.sweattypalms.skyblock.core.items.builder.armor.IHeadHelmet;
-import org.bukkit.Material;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,7 +14,7 @@ public class WardenHeart extends SkyblockItem implements IHeadHelmet {
         super(
                 ID,
                 "Warden Heart",
-                Material.SKULL_ITEM,
+                XMaterial.SKELETON_WALL_SKULL.parseMaterial(),
                 List.of(
                         "$7The heart of a powerful",
                         "$7creature, dropped by the atoned",

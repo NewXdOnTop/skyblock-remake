@@ -1,6 +1,7 @@
-package com.sweattypalms.skyblock.core.items.types.none.weapons;
+package com.sweattypalms.skyblock.core.items.types.none.items;
 
 import com.sweattypalms.skyblock.core.events.def.SkyblockInteractEvent;
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -31,7 +32,7 @@ public class AspectOfTheJerry extends SkyblockItem implements IHasAbility {
         super(
                 ID,
                 "Aspect of the Jerry",
-                Material.WOOD_SWORD,
+                XMaterial.WOODEN_SWORD.parseMaterial(),
                 null,
                 stats,
                 Rarity.COMMON,

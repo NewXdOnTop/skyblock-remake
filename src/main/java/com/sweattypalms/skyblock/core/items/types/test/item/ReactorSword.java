@@ -2,6 +2,7 @@ package com.sweattypalms.skyblock.core.items.types.test.item;
 
 import com.sweattypalms.skyblock.core.helpers.PDCHelper;
 import com.sweattypalms.skyblock.core.helpers.PlaceholderFormatter;
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -10,7 +11,6 @@ import com.sweattypalms.skyblock.core.items.builder.abilities.IHasAbility;
 import com.sweattypalms.skyblock.core.items.builder.abilities.types.IPersonalizedDescription;
 import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
-import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
@@ -28,7 +28,7 @@ public class ReactorSword extends SkyblockItem implements IHasAbility, IPersonal
         super(
                 ID,
                 "Reactor Sword",
-                Material.DIAMOND_SWORD,
+                XMaterial.DIAMOND_SWORD.parseMaterial(),
                 null,
                 stats,
                 Rarity.SPECIAL,

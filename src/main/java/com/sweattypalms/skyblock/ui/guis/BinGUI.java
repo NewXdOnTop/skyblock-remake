@@ -2,8 +2,6 @@ package com.sweattypalms.skyblock.ui.guis;
 
 import com.sweattypalms.skyblock.ui.BaseGUI;
 import com.sweattypalms.skyblock.ui.ClickableItem;
-import com.sweattypalms.skyblock.ui.GUIRouter;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

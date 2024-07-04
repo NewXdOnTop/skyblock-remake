@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.items.types.end.armor;
 
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -7,7 +8,6 @@ import com.sweattypalms.skyblock.core.items.builder.abilities.Ability;
 import com.sweattypalms.skyblock.core.items.builder.abilities.IHasAbility;
 import com.sweattypalms.skyblock.core.items.builder.armor.IDyedArmor;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
-import org.bukkit.Material;
 
 import java.util.List;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class SuperiorBoots extends SkyblockItem implements IHasAbility, IDyedArm
         super(
                 ID,
                 "Superior Dragon Boots",
-                Material.LEATHER_BOOTS,
+                XMaterial.LEATHER_BOOTS.parseMaterial(),
                 null,
                 stats,
                 Rarity.LEGENDARY,

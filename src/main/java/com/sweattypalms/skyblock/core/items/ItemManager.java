@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.items;
 
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SimpleSkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
@@ -7,7 +8,6 @@ import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
 import com.sweattypalms.skyblock.core.items.builder.abilities.AbilityManager;
 import com.sweattypalms.skyblock.core.items.types.Vanilla;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
-import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.reflections.Reflections;
 
@@ -56,7 +56,7 @@ public class ItemManager {
         SkyblockItem diamondSword = SimpleSkyblockItem.builder()
                 .id("diamond_sword")
                 .displayName("Diamond Sword")
-                .material(Material.DIAMOND_SWORD)
+                .material(XMaterial.DIAMOND_SWORD)
                 .stats(Map.of(Stats.DAMAGE, 35d))
                 .baseRarity(Rarity.UNCOMMON)
                 .itemType(SkyblockItemType.SWORD)
@@ -67,7 +67,7 @@ public class ItemManager {
         SkyblockItem undeadSword = SimpleSkyblockItem.builder()
                 .id("undead_sword")
                 .displayName("Undead Sword")
-                .material(Material.IRON_SWORD)
+                .material(XMaterial.IRON_SWORD)
                 .staticLore(List.of("$7Deals $a+100% $7damage to", "$7Skeletons, Zombies,", "$7Withers, and Zombie", "$7Pigwomen."))
                 .stats(Map.of(Stats.DAMAGE, 30d, Stats.HEALTH, 50d))
                 .baseRarity(Rarity.COMMON)
@@ -76,7 +76,7 @@ public class ItemManager {
                 .build();
     }
 
-    public SkyblockItem getFromVanillaItem(Material material) {
+    public SkyblockItem getFromVanillaItem(XMaterial material) {
         SkyblockItemType itemType;
 
         for (SkyblockItemType value : SkyblockItemType.values()) {

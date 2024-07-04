@@ -1,6 +1,7 @@
 package com.sweattypalms.skyblock.core.items.types.end.items;
 
 import com.sweattypalms.skyblock.core.events.def.SkyblockInteractEvent;
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -25,7 +26,7 @@ public class SummoningEye extends SkyblockItem implements IHasAbility, IHeadHelm
         super(
                 ID,
                 "Summoning Eye",
-                Material.SKULL_ITEM,
+                XMaterial.SKELETON_WALL_SKULL.parseMaterial(),
                 List.of(
                         "$7Use this at the $5End Altar",
                         "$7in the $5Dragon's Nest $7to",

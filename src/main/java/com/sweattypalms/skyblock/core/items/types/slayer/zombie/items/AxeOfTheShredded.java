@@ -4,6 +4,7 @@ import com.sweattypalms.skyblock.SkyBlock;
 import com.sweattypalms.skyblock.core.events.def.SkyblockInteractEvent;
 import com.sweattypalms.skyblock.core.events.def.SkyblockPlayerDamageEntityEvent;
 import com.sweattypalms.skyblock.core.helpers.MozangStuff;
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -46,7 +47,7 @@ public class AxeOfTheShredded extends SkyblockItem implements IHasAbility {
         super(
                 ID,
                 "Axe of the Shredded",
-                Material.DIAMOND_AXE,
+                XMaterial.DIAMOND_AXE.parseMaterial(),
                 List.of(
                         "$7Heal $c50" + Stats.HEALTH.getSymbol() + "$7per hit.",
                         "$7Deal $a+250% $7damage to Zombies.",

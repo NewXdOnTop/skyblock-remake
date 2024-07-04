@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.items.builder;
 
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.abilities.Ability;
 import com.sweattypalms.skyblock.core.items.builder.abilities.IHasAbility;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
@@ -57,8 +58,8 @@ public class SimpleSkyblockItem extends SkyblockItem implements IHasAbility {
             return self();
         }
 
-        public T material(Material material) {
-            this.material = material;
+        public T material(XMaterial material) {
+            this.material = material.parseMaterial();
             return self();
         }
 

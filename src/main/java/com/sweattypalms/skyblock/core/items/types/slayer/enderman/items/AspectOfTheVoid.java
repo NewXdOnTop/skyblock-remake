@@ -1,6 +1,7 @@
 package com.sweattypalms.skyblock.core.items.types.slayer.enderman.items;
 
 import com.sweattypalms.skyblock.core.events.def.SkyblockInteractEvent;
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -10,7 +11,6 @@ import com.sweattypalms.skyblock.core.items.builder.abilities.IHasAbility;
 import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
 import com.sweattypalms.skyblock.core.player.sub.bonus.Bonus;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
-import org.bukkit.Material;
 import org.bukkit.event.Event;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class AspectOfTheVoid  extends  SkyblockItem implements IHasAbility {
         super(
                 "aspect_of_the_void",
                 "Aspect of the Void",
-                Material.DIAMOND_SPADE,
+                XMaterial.DIAMOND_SHOVEL.parseMaterial(),
                 null,
                 stats,
                 Rarity.EPIC,

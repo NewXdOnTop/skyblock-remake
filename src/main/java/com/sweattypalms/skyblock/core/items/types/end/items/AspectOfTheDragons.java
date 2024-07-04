@@ -4,6 +4,7 @@ import com.sweattypalms.skyblock.api.ParticleEffect;
 import com.sweattypalms.skyblock.core.events.def.SkyblockInteractEvent;
 import com.sweattypalms.skyblock.core.events.def.SkyblockPlayerDamageEntityEvent;
 import com.sweattypalms.skyblock.core.helpers.MathHelper;
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -40,7 +41,7 @@ public class AspectOfTheDragons extends SkyblockItem implements IHasAbility {
         super(
                 ID,
                 "Aspect of the Dragons",
-                Material.DIAMOND_SWORD,
+                XMaterial.DIAMOND_SWORD.parseMaterial(),
                 null,
                 stats,
                 Rarity.LEGENDARY,

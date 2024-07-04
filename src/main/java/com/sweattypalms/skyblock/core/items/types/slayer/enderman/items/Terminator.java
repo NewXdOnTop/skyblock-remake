@@ -7,6 +7,7 @@ import com.sweattypalms.skyblock.core.events.def.SkyblockPlayerDamageEntityEvent
 import com.sweattypalms.skyblock.core.events.def.SkyblockProjectileLaunchEvent;
 import com.sweattypalms.skyblock.core.events.def.SkyblockProjectilePrelaunchEvent;
 import com.sweattypalms.skyblock.core.helpers.MozangStuff;
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -44,7 +45,7 @@ public class Terminator extends SkyblockItem implements IHasAbility, IShortBow {
         super(
                 "terminator",
                 "Terminator",
-                Material.BOW,
+                XMaterial.BOW.parseMaterial(),
                 null,
                 stats,
                 Rarity.LEGENDARY,

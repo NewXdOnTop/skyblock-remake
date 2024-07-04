@@ -1,10 +1,10 @@
 package com.sweattypalms.skyblock.core.items.types.slayer.zombie.items;
 
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
 import com.sweattypalms.skyblock.core.items.builder.armor.IHeadHelmet;
-import org.bukkit.Material;
 
 import java.util.HashMap;
 
@@ -14,7 +14,7 @@ public class BeheadedHorror extends SkyblockItem implements IHeadHelmet {
         super(
                 ID,
                 "Beheaded Horror",
-                Material.SKULL_ITEM,
+                XMaterial.SKELETON_WALL_SKULL.parseMaterial(),
                 null,
                 new HashMap<>(),
                 Rarity.EPIC,

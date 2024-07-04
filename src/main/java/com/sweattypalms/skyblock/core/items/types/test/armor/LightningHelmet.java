@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.items.types.test.armor;
 
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -8,7 +9,6 @@ import com.sweattypalms.skyblock.core.items.builder.abilities.AbilityManager;
 import com.sweattypalms.skyblock.core.items.builder.abilities.IHasAbility;
 import com.sweattypalms.skyblock.core.items.builder.armor.IDyedArmor;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
-import org.bukkit.Material;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +23,7 @@ public class LightningHelmet extends SkyblockItem implements IHasAbility, IDyedA
         super(
                 ID,
                 "Lightning Armor Helmet",
-                Material.LEATHER_HELMET,
+                XMaterial.LEATHER_HELMET.parseMaterial(),
                 null,
                 stats,
                 Rarity.SPECIAL,

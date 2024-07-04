@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.items.types.none.armor.lapis;
 
+import com.sweattypalms.skyblock.core.helpers.XMaterial;
 import com.sweattypalms.skyblock.core.items.builder.Rarity;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
@@ -8,7 +9,6 @@ import com.sweattypalms.skyblock.core.items.builder.abilities.AbilityManager;
 import com.sweattypalms.skyblock.core.items.builder.abilities.IHasAbility;
 import com.sweattypalms.skyblock.core.items.builder.armor.IHeadHelmet;
 import com.sweattypalms.skyblock.core.player.sub.stats.Stats;
-import org.bukkit.Material;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +23,7 @@ public class LapisHelmet extends SkyblockItem implements IHasAbility, IHeadHelme
         super(
                 ID,
                 "Lapis Helmet",
-                Material.SEA_LANTERN,
+                XMaterial.SEA_LANTERN.parseMaterial(),
                 List.of(
                         "$7Each piece of this armor grants",
                         "$a+50% $7bonus experience when",
