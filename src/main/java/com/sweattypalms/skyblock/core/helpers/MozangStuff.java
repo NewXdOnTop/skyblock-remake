@@ -22,7 +22,6 @@ public class MozangStuff {
         UUID uuid = UUID.randomUUID();
         GameProfile gameProfile = new GameProfile(uuid, null);
         gameProfile.getProperties().put("textures", new Property("textures", texture));
-        assert XMaterial.SKELETON_WALL_SKULL.parseMaterial() != null;
         ItemStack item = new ItemStack(XMaterial.SKELETON_WALL_SKULL.parseMaterial(), 1, (short) 3);
         SkullMeta skullMeta = (SkullMeta) item.getItemMeta();
         Field profileField = null;
