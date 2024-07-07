@@ -1,5 +1,6 @@
 package com.sweattypalms.skyblock.core.helpers;
 
+import com.cryptomorin.xseries.XMaterial;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import net.minecraft.server.v1_8_R3.NBTTagCompound;
@@ -16,11 +17,12 @@ import java.util.Map;
 import java.util.UUID;
 
 public class MozangStuff {
+
     public static ItemStack getHeadItemStack(String texture) {
         UUID uuid = UUID.randomUUID();
         GameProfile gameProfile = new GameProfile(uuid, null);
         gameProfile.getProperties().put("textures", new Property("textures", texture));
-        ItemStack item = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+        ItemStack item = new ItemStack(XMaterial.SKELETON_WALL_SKULL.parseMaterial(), 1, (short) 3);
         SkullMeta skullMeta = (SkullMeta) item.getItemMeta();
         Field profileField = null;
         try {

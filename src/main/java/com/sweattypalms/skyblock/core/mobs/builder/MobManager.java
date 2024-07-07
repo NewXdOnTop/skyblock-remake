@@ -32,11 +32,6 @@ public class MobManager {
 
 
     public static SkyblockMob getInstance(String id) throws IllegalArgumentException {
-//        try {
-//            return new SkyblockMob(id, MOBS_LIST.get(id));
-//        } catch (Exception e) {
-//            throw new IllegalArgumentException("Unknown mob id: " + id);
-//        }
         Class<? extends ISkyblockMob> clazz = MOBS_LIST.get(id);
         if (clazz == null) {
             throw new IllegalArgumentException("Unknown mob id: " + id);
