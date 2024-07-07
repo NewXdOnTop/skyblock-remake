@@ -1,4 +1,4 @@
-package com.sweattypalms.skyblock.core.helpers;
+package com.sweattypalms.skyblock.core.helpers.nms;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;

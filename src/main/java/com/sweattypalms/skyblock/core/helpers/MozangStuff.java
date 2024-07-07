@@ -3,8 +3,8 @@ package com.sweattypalms.skyblock.core.helpers;
 import com.cryptomorin.xseries.XMaterial;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import com.sweattypalms.skyblock.core.helpers.nms.Reflections;
 import net.minecraft.server.v1_8_R3.NBTTagCompound;
-import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftEntity;
 import org.bukkit.entity.Entity;
 import org.bukkit.inventory.ItemFlag;
@@ -12,9 +12,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.UUID;
+import java.lang.reflect.Method;
+import java.util.*;
 
 public class MozangStuff {
 
@@ -89,5 +88,25 @@ public class MozangStuff {
     public static int getMobID(Class<?> clazz) {
         Integer var1 = (Integer) ((Map) getPrivateField("f", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).get(clazz);
         return var1 == null ? 0 : var1;
+    }
+
+    private static void registerEntity(String name, int id, Class<?> clazz) {
+        try {
+            List<Map<?, ?>> dataMap = new ArrayList<>();
+            Class<?> entityTypes = Reflections.getNMSClass("entity", "EntityTypes");
+            for (Field f : entityTypes.getDeclaredFields()) {
+                if (f.getType().getSimpleName().equals(Map.class.getSimpleName())) {
+                    f.setAccessible(true);
+                    dataMap.add((Map<?, ?>)f.get((Object)null));
+                }
+            }
+            if (dataMap.get(2).containsKey(id)) {
+                dataMap.get(0).remove(name);
+                dataMap.get(2).remove(id);
+            }
+            Method method = entityTypes.getDeclaredMethod("a", Class.class, String.class, int.class);
+            method.setAccessible(true);
+            method.invoke((Object)null, new Object[] { clazz, name, id});
+        } catch (Exception exception) {}
     }
 }

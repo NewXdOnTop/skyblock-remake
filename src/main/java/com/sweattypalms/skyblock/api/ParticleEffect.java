@@ -1,7 +1,7 @@
 package com.sweattypalms.skyblock.api;
 
-import com.sweattypalms.skyblock.core.helpers.ReflectionUtils;
-import com.sweattypalms.skyblock.core.helpers.ReflectionUtils.PackageType;
+import com.sweattypalms.skyblock.core.helpers.nms.ReflectionUtils;
+import com.sweattypalms.skyblock.core.helpers.nms.ReflectionUtils.PackageType;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Location;
