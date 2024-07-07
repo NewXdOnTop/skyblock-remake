@@ -97,7 +97,7 @@ public class MozangStuff {
             for (Field f : entityTypes.getDeclaredFields()) {
                 if (f.getType().getSimpleName().equals(Map.class.getSimpleName())) {
                     f.setAccessible(true);
-                    dataMap.add((Map<?, ?>)f.get((Object)null));
+                    dataMap.add((Map<?, ?>)f.get(null));
                 }
             }
             if (dataMap.get(2).containsKey(id)) {
@@ -106,7 +106,9 @@ public class MozangStuff {
             }
             Method method = entityTypes.getDeclaredMethod("a", Class.class, String.class, int.class);
             method.setAccessible(true);
-            method.invoke((Object)null, new Object[] { clazz, name, id});
-        } catch (Exception exception) {}
+            method.invoke(null, clazz, name, id);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 }
