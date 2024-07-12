@@ -61,11 +61,12 @@ public class MozangStuff {
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     public static void addToMaps(Class clazz, String name, int id) {
-        ((Map) getPrivateField("c", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(name, clazz);
+        registerEntity(name, id, clazz);
+        /*((Map) getPrivateField("c", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(name, clazz);
         ((Map) getPrivateField("d", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(clazz, name);
         ((Map) getPrivateField("e", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(id, clazz);
         ((Map) getPrivateField("f", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(clazz, id);
-        ((Map) getPrivateField("g", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(name, id);
+        ((Map) getPrivateField("g", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(name, id);*/
     }
 
     private static Object getPrivateField(String fieldName, @SuppressWarnings("rawtypes") Class clazz, Object object) {
@@ -86,7 +87,10 @@ public class MozangStuff {
 
     @SuppressWarnings("rawtypes")
     public static int getMobID(Class<?> clazz) {
-        Integer var1 = (Integer) ((Map) getPrivateField("f", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).get(clazz);
+
+        Class<?> entityTypes = Reflections.getNMSClass("entity", "EntityTypes");
+        if (entityTypes == null) return 0;
+        Integer var1 = (Integer) ((Map) getPrivateField("f", entityTypes, null)).get(clazz);
         return var1 == null ? 0 : var1;
     }
 
@@ -97,7 +101,7 @@ public class MozangStuff {
             for (Field f : entityTypes.getDeclaredFields()) {
                 if (f.getType().getSimpleName().equals(Map.class.getSimpleName())) {
                     f.setAccessible(true);
-                    dataMap.add((Map<?, ?>)f.get(null));
+                    dataMap.add((Map<?, ?>) f.get(null));
                 }
             }
             if (dataMap.get(2).containsKey(id)) {

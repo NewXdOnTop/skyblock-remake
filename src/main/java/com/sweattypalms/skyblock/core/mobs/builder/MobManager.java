@@ -19,7 +19,6 @@ public class MobManager {
         for (Class<? extends ISkyblockMob> clazz : reflections.getSubTypesOf(ISkyblockMob.class)) {
             try {
                 if (clazz.isInterface() || Modifier.isAbstract(clazz.getModifiers())) continue;
-
                 String id = clazz.getDeclaredField("ID").get(null).toString();
                 MozangStuff.addToMaps(clazz, id, MozangStuff.getMobID(clazz.getSuperclass()));
                 MOBS_LIST.put(id, clazz);

@@ -20,6 +20,7 @@ import org.reflections.Reflections;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.Set;
 
 
@@ -48,7 +49,11 @@ public final class SkyBlock extends JavaPlugin {
             registerCommands();
             registerListeners();
             registerCraft();
-            configs();
+            try {
+                configs();
+            } catch (IOException ex) {
+                ex.printStackTrace(); // Printing Stack Trace for debugging.
+            }
 
             long end = System.currentTimeMillis() - start;
             System.out.println(ChatColor.GREEN + "SkyBlock has been enabled! This took " + ChatColor.YELLOW + end + "ms");
@@ -109,24 +114,15 @@ public final class SkyBlock extends JavaPlugin {
         System.out.println(ChatColor.GREEN + "Successfully registered " + commandRegistry.getCommandsAmt() + " commands.");
     }
 
-    private void configs() {
+    private void configs() throws IOException {
         File configuration = new File(this.getDataFolder(), "skyblock_config.yml");
+        FileConfiguration config = YamlConfiguration.loadConfiguration(configuration);
         if (!configuration.exists()) {
-            try {
-                FileConfiguration config = YamlConfiguration.loadConfiguration(configuration);
-                config.set("ratio", true);
-                config.set("server-ip", "mc.sweattypalms.me");
-                serverIP = "mc.sweattypalms.me";
-                try {
-                    config.save(configuration);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            config.set("ratio", true);
+            config.set("server-ip", "mc.sweattypalms.me");
+            serverIP = "mc.sweattypalms.me";
+            config.save(configuration);
         } else {
-            FileConfiguration config = YamlConfiguration.loadConfiguration(configuration);
             serverIP = config.getString("server-ip", "mc.sweattypalms.me");
         }
     }

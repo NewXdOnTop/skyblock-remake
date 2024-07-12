@@ -7,7 +7,6 @@ import net.minecraft.server.v1_8_R3.Vec3D;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Fireball;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
@@ -69,7 +68,7 @@ public class FireballAbility implements IDragonAbility {
             return;
         }
 
-        Player closestPlayer = EntityHelper.getClosestPlayer((LivingEntity) dragon.getBukkitEntity());
+        Player closestPlayer = EntityHelper.getClosestPlayer(dragon.getBukkitEntity());
 
         Vector direction;
 
