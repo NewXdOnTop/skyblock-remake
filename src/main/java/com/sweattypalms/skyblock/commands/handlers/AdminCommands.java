@@ -57,12 +57,13 @@ public class AdminCommands {
         Player player = commandArgs.getPlayer();
         if (player == null) return;
         if (args.length == 0) {
-            ItemsGUI gui = new ItemsGUI();
-            gui.open(player);
 
             String message = ChatColor.YELLOW + "If you want to get an item of a specific id, do:";
             message += "\n" + ChatColor.YELLOW + "/item <id> [optional: amount]";
             player.sendMessage(message);
+
+            ItemsGUI gui = new ItemsGUI();
+            gui.open(player);
 
             return;
         }

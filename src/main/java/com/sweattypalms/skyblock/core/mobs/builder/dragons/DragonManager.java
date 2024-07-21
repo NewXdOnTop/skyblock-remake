@@ -302,7 +302,7 @@ public class DragonManager {
     }
 
     private Location pointToLocation(Point point) {
-        return new Location(endWorld, point.getX(), 30, point.getZ());
+        return new Location(endWorld, point.getX(), 30, point.getY());
     }
 
     public boolean isDragonActive() {

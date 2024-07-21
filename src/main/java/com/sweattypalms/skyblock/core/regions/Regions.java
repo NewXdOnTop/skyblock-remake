@@ -29,7 +29,7 @@ public enum Regions {
     private final String world;
 
     int getArea(){
-        return (max.getX() - min.getX()) * (max.getZ() - min.getZ());
+        return (max.getX() - min.getX()) * (max.getY() - min.getY());
     }
 
     /**
@@ -55,8 +55,8 @@ public enum Regions {
         int minX = Math.min(point1.getX(), point2.getX());
         int maxX = Math.max(point1.getX(), point2.getX());
 
-        int minZ = Math.min(point1.getZ(), point2.getZ());
-        int maxZ = Math.max(point1.getZ(), point2.getZ());
+        int minZ = Math.min(point1.getY(), point2.getY());
+        int maxZ = Math.max(point1.getY(), point2.getY());
 
         this.min = new Point(minX, minZ);
         this.max = new Point(maxX, maxZ);
@@ -87,6 +87,6 @@ public enum Regions {
 
 
     public boolean contains(int x, int z) {
-        return x >= min.getX() && x <= max.getX() && z >= min.getZ() && z <= max.getZ();
+        return x >= min.getX() && x <= max.getX() && z >= min.getY() && z <= max.getY();
     }
 }
