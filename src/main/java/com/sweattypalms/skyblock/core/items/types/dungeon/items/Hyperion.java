@@ -15,7 +15,11 @@ public class Hyperion extends SkyblockItem implements IDungeon {
 
     public static final String ID = "hyperion";
     private static final Map<Stats, Double> stats = new HashMap<>(Map.of(
-            Stats.DAMAGE, 1d
+            Stats.DAMAGE, 260d,
+            Stats.STRENGTH, 150d,
+            Stats.INTELLIGENCE, 350d,
+            Stats.FEROCITY, 30d
+
     ));
 
     public Hyperion() {

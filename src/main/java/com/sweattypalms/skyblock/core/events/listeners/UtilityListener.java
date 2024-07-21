@@ -196,6 +196,7 @@ public class UtilityListener implements Listener {
         }
 
         LivingEntity hitEntity = en instanceof EnderDragonPart ? ((EnderDragonPart) en).getParent() : (LivingEntity) en;
+        if (hitEntity == null) return;
         if (shooter instanceof Player player && ((CraftLivingEntity) hitEntity).getHandle() instanceof ISkyblockMob skyblockMob) {
             SkyblockPlayerDamageEntityEvent skyblockPlayerDamageEntityEvent = new SkyblockPlayerDamageEntityEvent(
                     hitEntity,
@@ -205,7 +206,6 @@ public class UtilityListener implements Listener {
             Bukkit.getPluginManager().callEvent(skyblockPlayerDamageEntityEvent);
             return;
         }
-
 
 
     }

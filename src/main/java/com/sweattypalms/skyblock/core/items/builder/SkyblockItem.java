@@ -466,7 +466,7 @@ public abstract class SkyblockItem {
 
         String rarityLine = "";
         if (upgraded) rarityLine += rarity.getColor() + upgradedObfuscationMark;
-        rarityLine += rarity.getColor() + "§l" + (upgraded ? " " : "") + rarity + " " + (isDungeonItem ? "DUNGEON" : "") + type;
+        rarityLine += rarity.getColor() + "§l" + (upgraded ? " " : "") + rarity + " " + (isDungeonItem ? "DUNGEON " : "") + type;
         if (upgraded) rarityLine += " " + upgradedObfuscationMark;
 
         lore.add(rarityLine);

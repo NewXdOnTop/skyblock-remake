@@ -61,12 +61,12 @@ public class MozangStuff {
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     public static void addToMaps(Class clazz, String name, int id) {
-        registerEntity(name, id, clazz);
-        /*((Map) getPrivateField("c", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(name, clazz);
+      //  registerEntity(name, id, clazz);
+        ((Map) getPrivateField("c", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(name, clazz);
         ((Map) getPrivateField("d", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(clazz, name);
         ((Map) getPrivateField("e", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(id, clazz);
         ((Map) getPrivateField("f", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(clazz, id);
-        ((Map) getPrivateField("g", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(name, id);*/
+        ((Map) getPrivateField("g", net.minecraft.server.v1_8_R3.EntityTypes.class, null)).put(name, id);
     }
 
     private static Object getPrivateField(String fieldName, @SuppressWarnings("rawtypes") Class clazz, Object object) {
