@@ -57,7 +57,7 @@ public class AbilityManager {
         @Override
         public void apply(Event event) {
             if (!(event instanceof SkyblockPlayerDamageEntityEvent skyblockPlayerDamageEntityEvent)) return;
-            /* Multiplicitive, Makes the weapon deal 2x damage */
+            /* Multiplicative, Makes the weapon deal 2x damage */
             skyblockPlayerDamageEntityEvent.addMultiplicativeMultiplierPercent(100);
         }
     };
@@ -211,7 +211,7 @@ public class AbilityManager {
             Arrow arrow = as.launchProjectile(Arrow.class);
             arrow.setShooter(player);
 
-           // player.playSound(player.getLocation(), Sound.SHOOT_ARROW, 1, 1);
+            // player.playSound(player.getLocation(), Sound.SHOOT_ARROW, 1, 1);
             XSound.ENTITY_ARROW_SHOOT.play(player, 1, 1);
             as.remove();
 

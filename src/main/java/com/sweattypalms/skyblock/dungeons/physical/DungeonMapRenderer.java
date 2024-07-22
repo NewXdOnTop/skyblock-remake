@@ -1,18 +1,17 @@
-package com.sweattypalms.skyblock.dungeons.generator;
+package com.sweattypalms.skyblock.dungeons.physical;
 
-import com.sweattypalms.skyblock.api.Point;
+import com.sweattypalms.skyblock.dungeons.generator.*;
 import org.bukkit.entity.Player;
 import org.bukkit.map.MapCanvas;
 import org.bukkit.map.MapPalette;
 import org.bukkit.map.MapRenderer;
 import org.bukkit.map.MapView;
-
+import com.sweattypalms.skyblock.api.Point;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
 public class DungeonMapRenderer extends MapRenderer {
-
     public static final int GRID_SIZE = 6;
     public static final int CELL_SIZE = 100;
     public static final int CONNECTION_THICKNESS = 50;
@@ -28,7 +27,7 @@ public class DungeonMapRenderer extends MapRenderer {
 
     @Override
     public void render(MapView map, MapCanvas canvas, Player player) {
-        if (this.rendered) return;
+        if (rendered) return;
 
         int imgSize = GRID_SIZE * (CELL_SIZE + GAP) + GAP + PADDING;
         BufferedImage image = new BufferedImage(imgSize, imgSize, BufferedImage.TYPE_INT_ARGB);
@@ -60,7 +59,7 @@ public class DungeonMapRenderer extends MapRenderer {
             }
         }
 
-        this.rendered = true;
+        rendered = true;
     }
 
     private void drawRooms(Graphics2D graphics) {

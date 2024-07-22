@@ -10,6 +10,7 @@ import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.server.v1_8_R3.*;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
@@ -21,6 +22,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.Vector;
 
 import java.lang.reflect.Constructor;
 import java.util.Map;
@@ -201,6 +203,14 @@ public class SkyblockMob {
         } else {
             entityInstance.setHealth(newHealth);
             showDamageEffect(skyblockPlayer);
+        }
+
+        boolean amIKnockbackResistant = getAttribute(MobAttributes.KNOCKBACK_RESISTANT);
+
+        if (amIKnockbackResistant) {
+            Bukkit.getScheduler().runTaskLater(SkyBlock.getInstance(), () -> {
+                entityInstance.setVelocity(new Vector(0, 0, 0));
+            }, 1);
         }
     }
 
