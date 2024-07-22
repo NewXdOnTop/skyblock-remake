@@ -114,7 +114,7 @@ public abstract class RevenantHorror extends EntityZombie implements ISkyblockMo
          */
         if (ticks % 60 == 0) {
             double damageDealt = (double) this.skyblockMob.getAttribute(MobAttributes.DAMAGE) * 0.5;
-            this.ownerPlayer.damage(damageDealt);
+            this.ownerPlayer.damageWithReduction(damageDealt);
         }
 
         /*
@@ -123,7 +123,7 @@ public abstract class RevenantHorror extends EntityZombie implements ISkyblockMo
          */
         if (ticks % 20 == 0 && this.tier >= 2) {
             double damageDealt = this.skyblockMob.getAttribute(MobAttributes.DAMAGE);
-            this.ownerPlayer.damage(damageDealt);
+            this.ownerPlayer.damageWithReduction(damageDealt);
         }
     }
 
