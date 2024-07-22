@@ -7,6 +7,8 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
+import java.util.Random;
+
 public class MathHelper {
 
     /**
@@ -80,5 +82,15 @@ public class MathHelper {
         x = v.getX() * cos + v.getZ() * sin;
         z = v.getX() * -sin + v.getZ() * cos;
         return v.setX(x).setZ(z);
+    }
+
+    public static int random(int min, int max) {
+        if (min < 0) {
+            min = 0;
+        }
+        if (max < 0) {
+            max = 0;
+        }
+        return new Random().nextInt(max - min + 1) + min;
     }
 }

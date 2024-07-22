@@ -3,6 +3,7 @@ package com.sweattypalms.skyblock.slayers.type.zombie;
 import com.sweattypalms.skyblock.core.helpers.EntityHelper;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItem;
 import com.sweattypalms.skyblock.core.items.builder.SkyblockItemType;
+import com.sweattypalms.skyblock.core.mobs.builder.MobAttributes;
 import com.sweattypalms.skyblock.core.mobs.builder.SkyblockMob;
 import com.sweattypalms.skyblock.core.player.SkyblockPlayer;
 import com.sweattypalms.skyblock.slayers.SlayerDrop;
@@ -13,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
-public class RevenantHorrorTier2 extends RevenantHorror{
+public class RevenantHorrorTier2 extends RevenantHorror {
     public static final String ID = "revenant_horror_tier_2+slayer";
 
     public RevenantHorrorTier2(Location location, SkyblockMob skyblockMob) {
@@ -31,6 +32,7 @@ public class RevenantHorrorTier2 extends RevenantHorror{
 
     @Override
     public void setStats() {
+        this.tier = 2;
         this.getSkyblockMob()
                 .setMaxHealth(20000)
                 .setDamage(25)
@@ -56,4 +58,5 @@ public class RevenantHorrorTier2 extends RevenantHorror{
     public boolean requirementsMet(SkyblockPlayer skyblockPlayer) {
         return false;
     }
+
 }

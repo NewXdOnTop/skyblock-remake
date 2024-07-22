@@ -31,6 +31,7 @@ public class RevenantHorrorTierI extends RevenantHorror {
 
     @Override
     public void setStats() {
+        this.tier = 1;
         this.getSkyblockMob()
                 .setMaxHealth(500)
                 .setDamage(15)

@@ -2,10 +2,7 @@ package com.sweattypalms.skyblock.dungeons.physical;
 
 import com.sweattypalms.skyblock.dungeons.generator.*;
 import org.bukkit.entity.Player;
-import org.bukkit.map.MapCanvas;
-import org.bukkit.map.MapPalette;
-import org.bukkit.map.MapRenderer;
-import org.bukkit.map.MapView;
+import org.bukkit.map.*;
 import com.sweattypalms.skyblock.api.Point;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -28,7 +25,7 @@ public class DungeonMapRenderer extends MapRenderer {
     @Override
     public void render(MapView map, MapCanvas canvas, Player player) {
         if (rendered) return;
-
+        canvas.setCursors(new MapCursorCollection());
         int imgSize = GRID_SIZE * (CELL_SIZE + GAP) + GAP + PADDING;
         BufferedImage image = new BufferedImage(imgSize, imgSize, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = image.createGraphics();
